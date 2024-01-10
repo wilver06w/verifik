@@ -1,0 +1,57 @@
+name: verifik
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+#Si le cambias la version se ve reflejada en el footer de la web
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  flutter_modular: ^5.0.3
+  bloc: ^8.1.2
+  flutter_bloc: ^8.1.3
+  google_fonts: ^6.1.0
+  intl: ^0.18.1
+  dio: ^5.4.0
+  dio_smart_retry: ^6.0.0
+  dio_cache_interceptor: ^3.5.0
+  package_info_plus: ^5.0.1
+  shared_preferences: ^2.2.2
+  equatable: ^2.0.5
+  flutter_svg: ^2.0.9
+  dart_ipify: ^1.1.1
+  lottie: ^2.7.0
+  shimmer_animation: ^2.1.0+1
+  url_launcher: ^6.2.2
+  timelines: ^0.1.0
+  animations: ^2.0.10
+  gif: ^2.3.0
+  gif_view: ^0.4.0
+  platform_device_id: ^1.0.1
+  gap: ^3.0.1
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+
+flutter:
+  uses-material-design: true
+  assets:
+  - assets/animations/loading/
+  - assets/images/
+  - assets/gif/
+  - assets/svg/
