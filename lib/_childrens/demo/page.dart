@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:verifik/widget/item_circular.dart';
 import 'package:verifik/widget/button.dart';
+import 'package:verifik/utils/camera/bloc/bloc.dart';
 
 part 'package:verifik/_childrens/demo/_sections/header.dart';
 part 'package:verifik/_childrens/demo/_sections/app_bar.dart';
@@ -31,11 +32,18 @@ class Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final app = Modular.get<AppConfig>();
-    return BlocProvider<BlocDemo>(
-      create: (context) => BlocDemo(
-          //TODO: Creo que hay que remover, no hay necesidad de llamarlo.
-          // httpClient: Modular.get<XigoHttpClient>(),
-          ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<BlocDemo>(
+          create: (context) => BlocDemo(
+              //TODO: Creo que hay que remover, no hay necesidad de llamarlo.
+              // httpClient: Modular.get<XigoHttpClient>(),
+              ),
+        ),
+        BlocProvider(
+          create: (_) => BlocCamera(),
+        ),
+      ],
       child: Scaffold(
         backgroundColor: XigoColors.backgroundColor,
         appBar: MyAppBar(

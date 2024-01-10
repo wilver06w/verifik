@@ -42,10 +42,16 @@ class InitProyectUiValues {
   static const String livenessCheck = "Liveness check";
   static const String results = "Results";
 
-
+  static const String findFileDevice = "Find the file on your device";
+  static const String continu = "Continue";
+  static const String cancel = "Cancel";
   static const String uploadFile = "Upload file";
   static const String startScanning = "Start scanning";
+  static const String dragDropPhotoHere = "Drag and drop the photo here";
+  static const String idDocumentFile = "The ID Document file must have a .png .jpeg .jpg extension";
 
+  static const String noCameraAvailable = "Camera not available";
+  static const String deviceNotHaveCamera = "Device not have camera";
   static const String myName = "Wilver Rojas Del Ducca";
   static const String about = "About";
   static const String aboutMe = "About Me";

@@ -9,9 +9,15 @@ class Button extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPressed,
+    this.colorText = Colors.white,
+    this.borderColor = XigoColors.majorelleBlue,
+    this.backgroundColor,
   });
   final String title;
   final VoidCallback onPressed;
+  final Color colorText;
+  final Color borderColor;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +25,11 @@ class Button extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 10,
-        backgroundColor: XigoColors.majorelleBlue,
+        backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
-          side: const BorderSide(
-            color: XigoColors.majorelleBlue,
+          side: BorderSide(
+            color: borderColor,
           ),
         ),
       ),
@@ -40,7 +46,7 @@ class Button extends StatelessWidget {
         ),
         child: XigoText.labelText(
           label: title,
-          color: Colors.white,
+          color: colorText,
         ),
       ),
     );

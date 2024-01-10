@@ -95,6 +95,7 @@ class BodyHome extends StatelessWidget {
               children: [
                 Button(
                   title: InitProyectUiValues.startDemo,
+                  backgroundColor: XigoColors.majorelleBlue,
                   onPressed: () {
                     context.read<BlocDemo>().add(
                           const ChangePassNumberEvent(
