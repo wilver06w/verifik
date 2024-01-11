@@ -31,6 +31,7 @@ class BlocDemo extends Bloc<DemoEvent, DemoState> {
       ChangedDocumentDetailoState(
         state.model.copyWith(
           documentDetails: event.documentDetails,
+          imageScanned: event.imageScanned,
         ),
       ),
     );

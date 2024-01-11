@@ -1,10 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:verifik/models/data_dialog.dart';
 import 'package:verifik/models/document.dart';
 import 'package:verifik/screen/demo/bloc/bloc.dart';
 import 'package:verifik/screen/demo/repository.dart';
@@ -19,6 +18,7 @@ import 'package:verifik/utils/xigo_loading_circle.dart';
 import 'package:verifik/utils/xigo_ui.dart';
 import 'package:verifik/widget/body_general_two.dart';
 import 'package:verifik/widget/button.dart';
+
 part 'package:verifik/screen/scanning/_sections/item_id.dart';
 
 class ScanningPage extends StatelessWidget {
@@ -54,7 +54,17 @@ class ScanningPage extends StatelessWidget {
                       VerifikLoading.show(context);
                     } else if (state is LoadedDetailState) {
                       Navigator.pop(context);
-                      Navigator.pop(context, state.model.documentDetails);
+                      Navigator.pop(
+                        context,
+                        DataDialog(
+                          documentDetails: state.model.documentDetails!,
+                          imageMemory: context
+                              .read<BlocDemo>()
+                              .state
+                              .model
+                              .imageScanned!,
+                        ),
+                      );
                     } else if (state is ErrorDetailState) {
                       Navigator.pop(context);
                     }
@@ -67,9 +77,11 @@ class ScanningPage extends StatelessWidget {
 
           if (value != null) {
             if (context.mounted) {
+              final dataDialog = value as DataDialog;
               context.read<BlocDemo>().add(
-                     ChangeInfoDetailEvent(
-                      documentDetails: value as DocumentDetails,
+                    ChangeInfoDetailEvent(
+                      documentDetails: dataDialog.documentDetails,
+                      imageScanned: dataDialog.imageMemory,
                     ),
                   );
               context.read<BlocDemo>().add(
@@ -222,6 +234,7 @@ class CustomDialog extends StatelessWidget {
                       Navigator.pop(context, false);
                     },
                     colorText: Colors.red,
+                    borderColor: Colors.red,
                   ),
                   Gap(
                     XigoResponsive.withSizeByContext(

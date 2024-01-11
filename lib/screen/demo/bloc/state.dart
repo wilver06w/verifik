@@ -49,7 +49,7 @@ class Model extends Equatable {
   const Model({
     this.optionSelected = 0,
 //TODO: pasas a 0
-    this.numberPass = 1,
+    this.numberPass = 3,
     this.documentDetails,
     this.imageScanned,
   });

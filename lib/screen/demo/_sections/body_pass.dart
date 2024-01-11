@@ -24,6 +24,9 @@ class BodyPass extends StatelessWidget {
               case 2:
                 value = const DocumentPage();
                 break;
+              case 3:
+                value = const CameraPage();
+                break;
             }
 
             return value;

@@ -22,6 +22,12 @@ class InitProyectUiValues {
   static const String fullName = "Full name";
   static const String scanPromptDocumentExtraction =
       "Scan Prompt - Document extraction";
+  static const String userEstimatedLocation = "User estimated location";
+  static const String scanAgain = "Scan again";
+
+  static const String getCloser = "Get closer";
+  static const String pleaseComeBitCloserBetterFaceRecognition =
+      "Please come a bit closer for better face recognition.";
 
   static const String uploadImageTemp =
       "https://cdn.verifik.co/demo/anverso2x.png";

@@ -35,11 +35,25 @@ class InfoLeft extends StatelessWidget {
           fontSize: 20,
           fontWeight: FontWeight.w700,
         ),
+        Gap(
+          XigoResponsive.heightSizeByContext(
+            context,
+            pixels: XigoSpacing.xs,
+          ),
+        ),
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return state.model.imageScanned != null
                 ? Image.memory(
                     state.model.imageScanned!,
+                    width: XigoResponsive.withSizeByContext(
+                      context,
+                      pixels: 350,
+                    ),
+                    height: XigoResponsive.heightSizeByContext(
+                      context,
+                      pixels: 197,
+                    ),
                   )
                 : const SizedBox.shrink();
           },

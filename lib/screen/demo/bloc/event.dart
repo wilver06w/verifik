@@ -18,8 +18,10 @@ class ChangePassNumberEvent extends DemoEvent {
 class ChangeInfoDetailEvent extends DemoEvent {
   const ChangeInfoDetailEvent({
     required this.documentDetails,
+    required this.imageScanned,
   });
 
+  final Uint8List imageScanned;
   final DocumentDetails documentDetails;
 }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:verifik/utils/responsive.dart';
+import 'package:verifik/utils/spacing.dart';
 import 'package:verifik/utils/xigo_ui.dart';
 
 class VerifikLoading {
@@ -17,14 +18,13 @@ class VerifikLoading {
           canPop: false,
           child: Lottie.asset(
             InitProyectUiValues.loadingAnimations,
-            fit: BoxFit.contain,
             height: XigoResponsive.heightSizeByContext(
               context,
-              pixels: 100,
+              pixels: XigoSpacing.xs,
             ),
-            width: XigoResponsive.heightSizeByContext(
+            width: XigoResponsive.withSizeByContext(
               context,
-              pixels: 100,
+              pixels: XigoSpacing.xs,
             ),
           ),
         );

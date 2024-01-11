@@ -45,7 +45,6 @@ class BlocCamera extends bloc.Bloc<EventCamera, BlocCameraState> {
         );
         final controller = CameraController(camera, ResolutionPreset.veryHigh);
         await controller.initialize();
-        await controller.setFlashMode(FlashMode.off);
         emit(
           ReadyToCaptureState(
             state.model.copyWith(
