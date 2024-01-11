@@ -1,0 +1,50 @@
+part of 'package:verifik/screen/document/page.dart';
+
+class InfoLeft extends StatelessWidget {
+  const InfoLeft({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Gap(
+          XigoResponsive.heightSizeByContext(
+            context,
+            pixels: XigoSpacing.xxl,
+          ),
+        ),
+        XigoText.fontSizeCustom(
+          label: InitProyectUiValues.documentScanned,
+          color: XigoColors.rybBlue.withAlpha(77),
+          textAlign: TextAlign.center,
+          fontSize: 30,
+          fontWeight: FontWeight.w700,
+        ),
+        Gap(
+          XigoResponsive.heightSizeByContext(
+            context,
+            pixels: XigoSpacing.lg,
+          ),
+        ),
+        XigoText.fontSizeCustom(
+          label: InitProyectUiValues.frontSide,
+          color: Colors.black,
+          textAlign: TextAlign.center,
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+        ),
+        BlocBuilder<BlocDemo, DemoState>(
+          builder: (context, state) {
+            return state.model.imageScanned != null
+                ? Image.memory(
+                    state.model.imageScanned!,
+                  )
+                : const SizedBox.shrink();
+          },
+        ),
+      ],
+    );
+  }
+}

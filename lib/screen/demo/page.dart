@@ -7,6 +7,7 @@ import 'package:gap/gap.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:verifik/screen/demo/bloc/bloc.dart';
 import 'package:verifik/screen/demo/repository.dart';
+import 'package:verifik/screen/document/page.dart';
 import 'package:verifik/screen/scanning/page.dart';
 import 'package:verifik/utils/colors.dart';
 import 'package:verifik/utils/config/client_config.dart';

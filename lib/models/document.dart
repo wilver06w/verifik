@@ -236,11 +236,13 @@ class StudioOcrExtraction {
   Details details;
   String firstName;
   String documentNumber;
+  String fullName;
 
   StudioOcrExtraction({
     required this.details,
     required this.firstName,
     required this.documentNumber,
+    required this.fullName,
   });
 
   factory StudioOcrExtraction.fromJson(Map<String, dynamic> json) =>
@@ -248,12 +250,14 @@ class StudioOcrExtraction {
         details: Details.fromJson(json["details"]),
         firstName: json["firstName"],
         documentNumber: json["documentNumber"],
+        fullName: json["fullName"],
       );
 
   Map<String, dynamic> toJson() => {
         "details": details.toJson(),
         "firstName": firstName,
         "documentNumber": documentNumber,
+        "fullName": fullName,
       };
 }
 

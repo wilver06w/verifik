@@ -13,12 +13,21 @@ class Functions {
     }
   }
 
-  static Future<bool> initPlatformState() async {
+  static Future<bool> validateDeviceId({required String deviceId}) async {
+    try {
+      return deviceId.contains('AppleWebKit');
+    } catch (_) {
+      return false;
+    }
+  }
+
+  static Future<String> initPlatformState() async {
     try {
       String? deviceId = await PlatformDeviceId.getDeviceId;
-      return (deviceId ?? '').contains('AppleWebKit');
+
+      return (deviceId ?? '');
     } on PlatformException {
-      return false;
+      return '';
     }
   }
 

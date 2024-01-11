@@ -7,11 +7,28 @@ class BodyPass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        HeaderPassNumbers(),
-        ScanningPage(),
+        const HeaderPassNumbers(),
+        BlocSelector<BlocDemo, DemoState, int>(
+          selector: (state) {
+            return state.model.numberPass;
+          },
+          builder: (context, state) {
+            Widget value = Container();
+            switch (state) {
+              case 1:
+                value = const ScanningPage();
+                break;
+              case 2:
+                value = const DocumentPage();
+                break;
+            }
+
+            return value;
+          },
+        ),
       ],
     );
   }

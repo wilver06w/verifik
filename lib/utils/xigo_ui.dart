@@ -5,6 +5,24 @@ class InitProyectUiValues {
   static const String loadingAnimations =
       "assets/animations/loading/loading.json";
 
+  static const String documentScanned = "Document scanned";
+  static const String frontSide = "Front side";
+
+  static const String generalInformation = "General information";
+  static const String device = "Device";
+  static const String lenguaje = "Lenguaje";
+  static const String userAgent = "User Agent";
+
+  static const String scanStudioDocumentExtraction =
+      "Scan Studio - Document extraction";
+  static const String documenType = "Document type";
+  static const String documentNumber = "Document number";
+  static const String firstName = "First name";
+  static const String lastName = "Last name";
+  static const String fullName = "Full name";
+  static const String scanPromptDocumentExtraction =
+      "Scan Prompt - Document extraction";
+
   static const String uploadImageTemp =
       "https://cdn.verifik.co/demo/anverso2x.png";
   static const String scanIdDocumentImage =

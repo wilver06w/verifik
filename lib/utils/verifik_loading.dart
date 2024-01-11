@@ -20,11 +20,11 @@ class VerifikLoading {
             fit: BoxFit.contain,
             height: XigoResponsive.heightSizeByContext(
               context,
-              pixels: 200,
+              pixels: 100,
             ),
             width: XigoResponsive.heightSizeByContext(
               context,
-              pixels: 200,
+              pixels: 100,
             ),
           ),
         );

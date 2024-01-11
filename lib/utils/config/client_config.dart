@@ -26,6 +26,7 @@ class AppConfig {
   late Language _country;
 
   String version = '0';
+  String deviceId = '';
   Language get country => _country;
 
   set country(Language country) {

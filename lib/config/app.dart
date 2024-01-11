@@ -12,6 +12,7 @@ class App {
 
   Map<String, dynamic> config = {};
   String version = '';
+  String deviceId = '';
   bool isWeb = false;
 
   App._();
@@ -28,7 +29,10 @@ class App {
     try {
       PackageInfo dataPlatform = await PackageInfo.fromPlatform();
       version = dataPlatform.version;
-      isWeb = await Functions.initPlatformState();
+      deviceId = await Functions.initPlatformState();
+      isWeb = await Functions.validateDeviceId(
+        deviceId: deviceId,
+      );
     } catch (_) {}
   }
 

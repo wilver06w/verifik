@@ -21,6 +21,7 @@ class AppModule extends Module {
         (i) {
           return AppConfig()
             ..version = App.instance.version
+            ..deviceId = App.instance.deviceId
             ..isWeb = App.instance.isWeb;
         },
         isLazy: false,

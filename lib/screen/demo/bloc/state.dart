@@ -44,7 +44,8 @@ class GetProjectsState extends DemoState {
 class Model extends Equatable {
   const Model({
     this.optionSelected = 0,
-    this.numberPass = 0,
+//TODO: pasas a 0
+    this.numberPass = 1,
     this.documentDetails,
     this.imageScanned,
   });
@@ -57,8 +58,8 @@ class Model extends Equatable {
   Model copyWith({
     int? optionSelected,
     int? numberPass,
-    DocumentDetails? documentDetails,
     Uint8List? imageScanned,
+    DocumentDetails? documentDetails,
   }) {
     return Model(
       optionSelected: optionSelected ?? this.optionSelected,

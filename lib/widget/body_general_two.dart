@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:verifik/utils/spacing.dart';
 
 class BodyGeneralTwo extends StatelessWidget {
   const BodyGeneralTwo({
@@ -27,7 +28,7 @@ class BodyGeneralTwo extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              color: bgColorLeft,
+              color: bgColorRight,
               child: widgetRight,
             ),
           ),
