@@ -8,13 +8,13 @@ class Button extends StatelessWidget {
   const Button({
     super.key,
     required this.title,
-    required this.onPressed,
+    this.onPressed,
     this.colorText = Colors.white,
     this.borderColor = XigoColors.majorelleBlue,
     this.backgroundColor,
   });
   final String title;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Color colorText;
   final Color borderColor;
   final Color? backgroundColor;
@@ -26,12 +26,14 @@ class Button extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         elevation: 10,
         backgroundColor: backgroundColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
-          side: BorderSide(
-            color: borderColor,
-          ),
-        ),
+        shape: onPressed != null
+            ? RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+                side: BorderSide(
+                  color: borderColor,
+                ),
+              )
+            : null,
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(

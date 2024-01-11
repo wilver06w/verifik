@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
+import 'package:image_picker_web/image_picker_web.dart';
 import 'package:path/path.dart' as pat;
 import 'package:path_provider/path_provider.dart';
 import 'package:verifik/utils/xigo_ui.dart';
@@ -15,7 +16,7 @@ import 'package:verifik/utils/xigo_ui.dart';
 part 'event.dart';
 part 'state.dart';
 
-class BlocCamera extends bloc.Bloc<EventCamera, BlocState> {
+class BlocCamera extends bloc.Bloc<EventCamera, BlocCameraState> {
   BlocCamera() : super(const InitialState(Model())) {
     on<LoadEvent>(_onLoadEvent);
     on<CaptureImageEvent>(_onImageCapturedEvent);
@@ -32,7 +33,7 @@ class BlocCamera extends bloc.Bloc<EventCamera, BlocState> {
 
   Future<void> _onLoadEvent(
     LoadEvent event,
-    Emitter<BlocState> emit,
+    Emitter<BlocCameraState> emit,
   ) async {
     try {
       emit(LoadingState(state.model));
@@ -75,7 +76,7 @@ class BlocCamera extends bloc.Bloc<EventCamera, BlocState> {
 
   Future<void> _onImageCapturedEvent(
     CaptureImageEvent event,
-    Emitter<BlocState> emit,
+    Emitter<BlocCameraState> emit,
   ) async {
     try {
       emit(LoadingState(state.model));
@@ -115,35 +116,56 @@ class BlocCamera extends bloc.Bloc<EventCamera, BlocState> {
 
   void _onPickFileFromGalleryEvent(
     PickFileFromGalleryEvent event,
-    Emitter<BlocState> emit,
+    Emitter<BlocCameraState> emit,
   ) async {
     try {
       emit(LoadingState(state.model));
-      final pickedFile = await ImagePicker().pickImage(
-        source: ImageSource.gallery,
-      );
-      if (pickedFile != null) {
-        final maxSize = event.maxFileSizeBytes;
-        final file = File(pickedFile.path);
-        final fileSize = file.lengthSync();
-        if (!event.shouldProcessImage || fileSize <= maxSize) {
+
+      if (kIsWeb) {
+        final pickedFile = await ImagePicker().pickImage(
+          source: ImageSource.gallery,
+        );
+        if (pickedFile != null) {
+          final picked = await pickedFile.readAsBytes();
+          final route = File.fromRawPath(picked);
           emit(
             PictureCapturedState(
               state.model.copyWith(
-                imagePath: file.path,
+                imagePath: route.path,
+                imageMemory: picked,
               ),
             ),
           );
         } else {
-          add(
-            ProcessImageEvent(
-              file: file,
-              ratio: (fileSize / maxSize).ceilToDouble(),
-            ),
-          );
+          emit(ReadyToCaptureState(state.model));
         }
       } else {
-        emit(ReadyToCaptureState(state.model));
+        final pickedFile = await ImagePicker().pickImage(
+          source: ImageSource.gallery,
+        );
+        if (pickedFile != null) {
+          final maxSize = event.maxFileSizeBytes;
+          final file = File(pickedFile.path);
+          final fileSize = file.lengthSync();
+          if (!event.shouldProcessImage || fileSize <= maxSize) {
+            emit(
+              PictureCapturedState(
+                state.model.copyWith(
+                  imagePath: file.path,
+                ),
+              ),
+            );
+          } else {
+            add(
+              ProcessImageEvent(
+                file: file,
+                ratio: (fileSize / maxSize).ceilToDouble(),
+              ),
+            );
+          }
+        } else {
+          emit(ReadyToCaptureState(state.model));
+        }
       }
     } on CameraException catch (error) {
       emit(
@@ -157,7 +179,7 @@ class BlocCamera extends bloc.Bloc<EventCamera, BlocState> {
 
   void _onImageProcessingEvent(
     ProcessImageEvent event,
-    Emitter<BlocState> emit,
+    Emitter<BlocCameraState> emit,
   ) async {
     try {
       emit(LoadingState(state.model));
@@ -198,7 +220,7 @@ class BlocCamera extends bloc.Bloc<EventCamera, BlocState> {
 
   void _onClearCaptureEvent(
     ClearCaptureEvent event,
-    Emitter<BlocState> emit,
+    Emitter<BlocCameraState> emit,
   ) {
     emit(
       ReadyToCaptureState(

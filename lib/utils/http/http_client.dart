@@ -17,8 +17,7 @@ class XigoHttpClient {
 
   XigoHttpClient getInstance() {
     _singleton._msDio = XigoSharedDio(
-      baseUrl: 'https://back.soyxigo.online/api',
-      appName: 'app-conductor',
+      baseUrl: 'https://demo.verifik.co',
     );
     return _singleton;
   }

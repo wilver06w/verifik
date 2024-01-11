@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:verifik/_childrens/demo/page.dart' as demo;
+import 'package:verifik/screen/demo/page.dart' as demo;
 
 class GlobalModule extends Module {
   @override

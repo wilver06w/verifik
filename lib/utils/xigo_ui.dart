@@ -2,7 +2,13 @@ class InitProyectUiValues {
   static const String textFooter = "Verifik © 2023 Product of MAT Enterprises";
   static const String partnerWithUs = "Partner with us";
   static const String talkSales = "Talk to sales";
+  static const String loadingAnimations =
+      "assets/animations/loading/loading.json";
 
+  static const String uploadImageTemp =
+      "https://cdn.verifik.co/demo/anverso2x.png";
+  static const String scanIdDocumentImage =
+      "https://cdn.verifik.co/demo/scan2x.png";
   static const String idInCardPng =
       "https://cdn.verifik.co/demo/id_in_card.png";
   static const String scanYourIdDocument = 'Scan your ID Document';
@@ -48,7 +54,8 @@ class InitProyectUiValues {
   static const String uploadFile = "Upload file";
   static const String startScanning = "Start scanning";
   static const String dragDropPhotoHere = "Drag and drop the photo here";
-  static const String idDocumentFile = "The ID Document file must have a .png .jpeg .jpg extension";
+  static const String idDocumentFile =
+      "The ID Document file must have a .png .jpeg .jpg extension";
 
   static const String noCameraAvailable = "Camera not available";
   static const String deviceNotHaveCamera = "Device not have camera";

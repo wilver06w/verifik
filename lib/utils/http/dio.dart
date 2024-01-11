@@ -15,20 +15,17 @@ class XigoSharedDio {
     /// only for test, this value for test should be a mock
     Dio? dioInstance,
     required String baseUrl,
-    required this.appName,
   }) {
     _dioInstance = dioInstance ?? Dio()
       ..options.baseUrl = baseUrl
       ..options.followRedirects = false;
+
     _addHeaders();
   }
 
   late Dio _dioInstance;
 
   /// This property is a value in Http request headers.
-  ///
-  /// `X-App-Name`
-  String appName;
 
   Dio get dio => _dioInstance;
 
@@ -40,7 +37,6 @@ class XigoSharedDio {
       Headers.contentTypeHeader: Headers.jsonContentType,
       Headers.acceptHeader: Headers.jsonContentType,
       HttpHeaders.acceptEncodingHeader: 'gzip',
-      'App-name': appName,
     };
   }
 }

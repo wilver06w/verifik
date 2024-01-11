@@ -122,7 +122,7 @@ class _TulCameraModal extends ModalRoute<String?> {
     this.retryButtonKey,
   });
 
-  Future _listener(BuildContext context, BlocState state) async {
+  Future _listener(BuildContext context, BlocCameraState state) async {
     if (state is ErrorState && onError != null) {
       onError!(state.error);
     }
@@ -138,7 +138,7 @@ class _TulCameraModal extends ModalRoute<String?> {
     return BlocProvider(
       create: (_) => BlocCamera()..add(LoadEvent()),
       child: Scaffold(
-        body: BlocConsumer<BlocCamera, BlocState>(
+        body: BlocConsumer<BlocCamera, BlocCameraState>(
           listener: _listener,
           builder: (context, state) {
             return Container(

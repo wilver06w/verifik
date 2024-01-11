@@ -43,6 +43,7 @@ dependencies:
   image_picker: ^1.0.1
   path_provider: ^2.0.15
   path: ^1.8.3
+  image_picker_web: ^3.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -58,6 +59,4 @@ flutter:
   uses-material-design: true
   assets:
   - assets/animations/loading/
-  - assets/images/
-  - assets/gif/
   - assets/svg/
