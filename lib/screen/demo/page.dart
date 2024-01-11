@@ -1,15 +1,15 @@
 import 'dart:async';
-import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:octo_image/octo_image.dart';
 import 'package:verifik/screen/camera/page.dart';
 import 'package:verifik/screen/demo/bloc/bloc.dart';
 import 'package:verifik/screen/demo/repository.dart';
 import 'package:verifik/screen/document/page.dart';
 import 'package:verifik/screen/scanning/page.dart';
+import 'package:verifik/utils/camera/bloc/bloc.dart';
 import 'package:verifik/utils/colors.dart';
 import 'package:verifik/utils/config/client_config.dart';
 import 'package:verifik/utils/functions.dart';
@@ -17,24 +17,18 @@ import 'package:verifik/utils/http/http_client.dart' hide ModularWatchExtension;
 import 'package:verifik/utils/responsive.dart';
 import 'package:verifik/utils/spacing.dart';
 import 'package:verifik/utils/text/text.dart';
-import 'package:verifik/utils/verifik_loading.dart';
-import 'package:verifik/utils/xigo_loading_circle.dart';
 import 'package:verifik/utils/xigo_ui.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:verifik/widget/body_general_two.dart';
-import 'package:verifik/widget/item_circular.dart';
 import 'package:verifik/widget/button.dart';
-import 'package:verifik/utils/camera/bloc/bloc.dart';
+import 'package:verifik/widget/item_circular.dart';
 
-part 'package:verifik/screen/demo/_sections/header.dart';
 part 'package:verifik/screen/demo/_sections/app_bar.dart';
-part 'package:verifik/screen/demo/_sections/bottom.dart';
-part 'package:verifik/screen/demo/_sections/item_card.dart';
-part 'package:verifik/screen/demo/_sections/options_card.dart';
 part 'package:verifik/screen/demo/_sections/body_home.dart';
 part 'package:verifik/screen/demo/_sections/body_pass.dart';
+part 'package:verifik/screen/demo/_sections/bottom.dart';
+part 'package:verifik/screen/demo/_sections/header.dart';
 part 'package:verifik/screen/demo/_sections/header_pass.dart';
+part 'package:verifik/screen/demo/_sections/item_card.dart';
+part 'package:verifik/screen/demo/_sections/options_card.dart';
 
 class Page extends StatelessWidget {
   const Page({super.key});

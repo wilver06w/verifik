@@ -9,9 +9,19 @@ class ViewImageCaptured extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return state.model.imageMemory != null
+    return state.model.selfieImageMemory != null
         ? Image.memory(
-            state.model.imageMemory!,
+            state.model.selfieImageMemory!,
+            width: XigoResponsive.withSizeByContext(
+              context,
+              pixels: 270,
+            ),
+            height: XigoResponsive.heightSizeByContext(
+              context,
+              pixels: 500,
+            ),
+          )
+        : OctoImage(
             width: XigoResponsive.withSizeByContext(
               context,
               pixels: 310,
@@ -20,9 +30,7 @@ class ViewImageCaptured extends StatelessWidget {
               context,
               pixels: 120,
             ),
-          )
-        : OctoImage(
-            image: FileImage(state.model.imageFile!),
+            image: FileImage(state.model.selfieImageFile!),
             placeholderBuilder: (_) => const XigoLoadingCircle(),
           );
   }

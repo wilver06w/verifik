@@ -37,17 +37,27 @@ class Model extends Equatable {
   final FlashMode? flashMode;
   final String? imagePath;
   final Uint8List? imageMemory;
+  final String? selfieImagePath;
+  final Uint8List? selfieImageMemory;
 
   bool get hasImage =>
       (imagePath?.isNotEmpty ?? false) && File(imagePath!).existsSync();
 
   File? get imageFile => hasImage ? File(imagePath!) : null;
+  
+  bool get hasImageSelfie =>
+      (selfieImagePath?.isNotEmpty ?? false) &&
+      File(selfieImagePath!).existsSync();
+
+  File? get selfieImageFile => hasImageSelfie ? File(selfieImagePath!) : null;
 
   const Model({
     this.cameraController,
     this.imagePath,
     this.flashMode = FlashMode.off,
     this.imageMemory,
+    this.selfieImageMemory,
+    this.selfieImagePath,
   });
 
   Model copyWith({
@@ -55,12 +65,16 @@ class Model extends Equatable {
     String? imagePath,
     FlashMode? flashMode,
     Uint8List? imageMemory,
+    String? selfieImagePath,
+    Uint8List? selfieImageMemory,
   }) {
     return Model(
       cameraController: cameraController ?? this.cameraController,
       imagePath: imagePath ?? this.imagePath,
       flashMode: flashMode ?? this.flashMode,
       imageMemory: imageMemory ?? this.imageMemory,
+      selfieImageMemory: selfieImageMemory ?? this.selfieImageMemory,
+      selfieImagePath: selfieImagePath ?? this.selfieImagePath,
     );
   }
 
@@ -70,5 +84,7 @@ class Model extends Equatable {
         flashMode,
         cameraController,
         imageMemory,
+        selfieImageMemory,
+        selfieImagePath,
       ];
 }

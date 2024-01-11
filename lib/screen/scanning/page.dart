@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:verifik/models/data_dialog.dart';
-import 'package:verifik/models/document.dart';
 import 'package:verifik/screen/demo/bloc/bloc.dart';
 import 'package:verifik/screen/demo/repository.dart';
 import 'package:verifik/utils/camera/bloc/bloc.dart';
@@ -48,28 +47,9 @@ class ScanningPage extends StatelessWidget {
                     ),
                   ),
                 ],
-                child: BlocListener<BlocDemo, DemoState>(
-                  listener: (context, state) {
-                    if (state is LoadingDetailsState) {
-                      VerifikLoading.show(context);
-                    } else if (state is LoadedDetailState) {
-                      Navigator.pop(context);
-                      Navigator.pop(
-                        context,
-                        DataDialog(
-                          documentDetails: state.model.documentDetails!,
-                          imageMemory: context
-                              .read<BlocDemo>()
-                              .state
-                              .model
-                              .imageScanned!,
-                        ),
-                      );
-                    } else if (state is ErrorDetailState) {
-                      Navigator.pop(context);
-                    }
-                  },
-                  child: const CustomDialog(),
+                child: const BlocListener<BlocDemo, DemoState>(
+                  listener: _listener,
+                  child: CustomDialog(),
                 ),
               );
             },
@@ -107,6 +87,23 @@ class ScanningPage extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+Future<void> _listener(BuildContext context, DemoState state) async {
+  if (state is LoadingDetailsState) {
+    VerifikLoading.show(context);
+  } else if (state is LoadedDetailState) {
+    Navigator.pop(context);
+    Navigator.pop(
+      context,
+      DataDialog(
+        documentDetails: state.model.documentDetails!,
+        imageMemory: context.read<BlocDemo>().state.model.imageScanned!,
+      ),
+    );
+  } else if (state is ErrorDetailState) {
+    Navigator.pop(context);
   }
 }
 

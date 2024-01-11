@@ -28,6 +28,7 @@ class InitProyectUiValues {
   static const String getCloser = "Get closer";
   static const String pleaseComeBitCloserBetterFaceRecognition =
       "Please come a bit closer for better face recognition.";
+  static const String goBack = "Go back";
 
   static const String uploadImageTemp =
       "https://cdn.verifik.co/demo/anverso2x.png";
@@ -74,6 +75,7 @@ class InitProyectUiValues {
 
   static const String findFileDevice = "Find the file on your device";
   static const String continu = "Continue";
+  static const String takePhoto = "Take photo";
   static const String cancel = "Cancel";
   static const String uploadFile = "Upload file";
   static const String startScanning = "Start scanning";

@@ -20,6 +20,22 @@ class ChangedDocumentDetailoState extends DemoState {
   const ChangedDocumentDetailoState(Model model) : super(model);
 }
 
+class ChangedSelfieImageState extends DemoState {
+  const ChangedSelfieImageState(Model model) : super(model);
+}
+
+class LoadingLivenessState extends DemoState {
+  const LoadingLivenessState(Model model) : super(model);
+}
+
+class LoadedLivenessState extends DemoState {
+  const LoadedLivenessState(Model model) : super(model);
+}
+
+class ErrorLivenessState extends DemoState {
+  const ErrorLivenessState(Model model) : super(model);
+}
+
 class LoadingDetailsState extends DemoState {
   const LoadingDetailsState(Model model) : super(model);
 }
@@ -52,17 +68,20 @@ class Model extends Equatable {
     this.numberPass = 3,
     this.documentDetails,
     this.imageScanned,
+    this.imageSelfie,
   });
 
   final int optionSelected;
   final int numberPass;
   final DocumentDetails? documentDetails;
   final Uint8List? imageScanned;
+  final Uint8List? imageSelfie;
 
   Model copyWith({
     int? optionSelected,
     int? numberPass,
     Uint8List? imageScanned,
+    Uint8List? imageSelfie,
     DocumentDetails? documentDetails,
   }) {
     return Model(
@@ -70,6 +89,7 @@ class Model extends Equatable {
       numberPass: numberPass ?? this.numberPass,
       documentDetails: documentDetails ?? this.documentDetails,
       imageScanned: imageScanned ?? this.imageScanned,
+      imageSelfie: imageSelfie ?? this.imageSelfie,
     );
   }
 
@@ -80,6 +100,7 @@ class Model extends Equatable {
       numberPass,
       documentDetails,
       imageScanned,
+      imageSelfie,
     ];
   }
 }

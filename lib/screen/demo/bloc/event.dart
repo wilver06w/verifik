@@ -15,6 +15,16 @@ class ChangePassNumberEvent extends DemoEvent {
   final int passNumber;
 }
 
+class GetCompareRecognitionEvent extends DemoEvent {}
+
+class ChangeSelfieImagenEvent extends DemoEvent {
+  const ChangeSelfieImagenEvent({
+    required this.imageSelfie,
+  });
+
+  final Uint8List imageSelfie;
+}
+
 class ChangeInfoDetailEvent extends DemoEvent {
   const ChangeInfoDetailEvent({
     required this.documentDetails,

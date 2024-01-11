@@ -79,29 +79,50 @@ class BlocCamera extends bloc.Bloc<EventCamera, BlocCameraState> {
   ) async {
     try {
       emit(LoadingState(state.model));
-      final capturedFile = await state.model.cameraController?.takePicture();
-      if (capturedFile != null) {
-        final maxSize = event.maxFileSizeBytes;
-        final file = File(capturedFile.path);
-        final fileSize = file.lengthSync();
-        if (!event.shouldProcessImage || fileSize <= maxSize) {
+
+      if (kIsWeb) {
+        final capturedFile = await state.model.cameraController?.takePicture();
+
+        if (capturedFile != null) {
+          final capture = await capturedFile.readAsBytes();
+          final route = File.fromRawPath(capture);
           emit(
             PictureCapturedState(
               state.model.copyWith(
-                imagePath: file.path,
+                selfieImagePath: route.path,
+                selfieImageMemory: capture,
               ),
             ),
           );
         } else {
-          add(
-            ProcessImageEvent(
-              file: file,
-              ratio: (fileSize / maxSize).ceilToDouble(),
-            ),
-          );
+          emit(ReadyToCaptureState(state.model));
         }
       } else {
-        emit(ReadyToCaptureState(state.model));
+        final capturedFile = await state.model.cameraController?.takePicture();
+
+        if (capturedFile != null) {
+          final maxSize = event.maxFileSizeBytes;
+          final file = File(capturedFile.path);
+          final fileSize = file.lengthSync();
+          if (!event.shouldProcessImage || fileSize <= maxSize) {
+            emit(
+              PictureCapturedState(
+                state.model.copyWith(
+                  selfieImagePath: file.path,
+                ),
+              ),
+            );
+          } else {
+            add(
+              ProcessImageEvent(
+                file: file,
+                ratio: (fileSize / maxSize).ceilToDouble(),
+              ),
+            );
+          }
+        } else {
+          emit(ReadyToCaptureState(state.model));
+        }
       }
     } on CameraException catch (error) {
       emit(

@@ -11,7 +11,23 @@ class ViewCamera extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SizedBox(
+        ClipRRect(
+          borderRadius: BorderRadius.circular(20.0),
+          child: SizedBox(
+            width: XigoResponsive.withSizeByContext(
+              context,
+              pixels: 270,
+            ),
+            height: XigoResponsive.heightSizeByContext(
+              context,
+              pixels: 500,
+            ),
+            child: CameraPreview(
+              state.model.cameraController!,
+            ),
+          ),
+        ),
+        Container(
           width: XigoResponsive.withSizeByContext(
             context,
             pixels: 270,
@@ -20,37 +36,67 @@ class ViewCamera extends StatelessWidget {
             context,
             pixels: 500,
           ),
-          child: CameraPreview(
-            state.model.cameraController!,
+          decoration: BoxDecoration(
+            color: Colors.white.withAlpha(95),
+            borderRadius: BorderRadius.circular(
+              20.0,
+            ),
           ),
         ),
-
-        /*  CustomPaint(
-  painter: CirclePainter(), // Define a custom painter for the circle
-  child: GestureDetector(
-    onTap: () => _takePhoto(), // Trigger photo capture when tapped
-  ),
-)*/
-        Column(
-          children: [
-            Container(
-              width: XigoResponsive.withSizeByContext(
-                context,
-                pixels: 270,
-              ),
-              height: XigoResponsive.heightSizeByContext(
-                context,
-                pixels: 500,
-              ),
-              decoration: BoxDecoration(
-                color: XigoColors.azureishWhite,
-                borderRadius: BorderRadius.circular(
-                  10.0,
+        Positioned(
+          top: 0,
+          bottom: 0,
+          right: 0,
+          left: 0,
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: XigoResponsive.withSizeByContext(
+                    context,
+                    pixels: 120,
+                  ),
+                  height: XigoResponsive.heightSizeByContext(
+                    context,
+                    pixels: 250,
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.red,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      20.0,
+                    ),
+                  ),
                 ),
-              ),
+                Gap(
+                  XigoResponsive.heightSizeByContext(
+                    context,
+                    pixels: XigoSpacing.md,
+                  ),
+                ),
+                Button(
+                  title: InitProyectUiValues.takePhoto,
+                  backgroundColor: XigoColors.majorelleBlue,
+                  onPressed: () {
+                    context.read<BlocCamera>().add(
+                          CaptureImageEvent(),
+                        );
+
+/*                    context.read<BlocDemo>().add(
+                          const ChangePassNumberEvent(
+                            passNumber: 3,
+                          ),
+                        );
+ */
+                  },
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        )
       ],
     );
   }
