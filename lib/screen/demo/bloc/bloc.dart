@@ -14,6 +14,7 @@ class BlocDemo extends Bloc<DemoEvent, DemoState> {
   BlocDemo({
     required this.repository,
   }) : super(const InitialState(Model())) {
+    on<ChangeInfoDetailEvent>(_onChangeInfoDetailEvent);
     on<ChangePassNumberEvent>(_onChangePassNumberEvent);
     on<ChangedOptionSelectedEvent>(_onChangedOptionSelectedEvent);
     on<GetDetailsEvent>(_onGetDetailsEvent);
@@ -21,6 +22,19 @@ class BlocDemo extends Bloc<DemoEvent, DemoState> {
   }
 
   final Repository repository;
+
+  void _onChangeInfoDetailEvent(
+    ChangeInfoDetailEvent event,
+    Emitter<DemoState> emit,
+  ) {
+    emit(
+      ChangedDocumentDetailoState(
+        state.model.copyWith(
+          documentDetails: event.documentDetails,
+        ),
+      ),
+    );
+  }
 
   void _onChangePassNumberEvent(
     ChangePassNumberEvent event,

@@ -16,6 +16,10 @@ class ChangedPassNumberState extends DemoState {
   const ChangedPassNumberState(Model model) : super(model);
 }
 
+class ChangedDocumentDetailoState extends DemoState {
+  const ChangedDocumentDetailoState(Model model) : super(model);
+}
+
 class LoadingDetailsState extends DemoState {
   const LoadingDetailsState(Model model) : super(model);
 }

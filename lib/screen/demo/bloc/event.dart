@@ -8,11 +8,19 @@ abstract class DemoEvent extends Equatable {
 }
 
 class ChangePassNumberEvent extends DemoEvent {
-  final int passNumber;
-
   const ChangePassNumberEvent({
     required this.passNumber,
   });
+
+  final int passNumber;
+}
+
+class ChangeInfoDetailEvent extends DemoEvent {
+  const ChangeInfoDetailEvent({
+    required this.documentDetails,
+  });
+
+  final DocumentDetails documentDetails;
 }
 
 class GetDetailsEvent extends DemoEvent {

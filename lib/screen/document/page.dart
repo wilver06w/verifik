@@ -159,10 +159,14 @@ class SectionInfo extends StatelessWidget {
         ),
         ...List.generate(
           items.length,
-          (index) => ItemInfo(
-            title: items[index].title,
-            subTitle: items[index].subTitle,
-          ),
+          (index) {
+            final item = items[index];
+            return ItemInfo(
+              title: item.title,
+              subTitle: item.subTitle,
+              isLast: items.last == item,
+            );
+          },
         ),
       ],
     );

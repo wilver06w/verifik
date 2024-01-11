@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:verifik/models/document.dart';
 import 'package:verifik/screen/demo/bloc/bloc.dart';
 import 'package:verifik/screen/demo/repository.dart';
 import 'package:verifik/utils/camera/bloc/bloc.dart';
@@ -53,7 +54,7 @@ class ScanningPage extends StatelessWidget {
                       VerifikLoading.show(context);
                     } else if (state is LoadedDetailState) {
                       Navigator.pop(context);
-                      Navigator.pop(context, true);
+                      Navigator.pop(context, state.model.documentDetails);
                     } else if (state is ErrorDetailState) {
                       Navigator.pop(context);
                     }
@@ -64,8 +65,13 @@ class ScanningPage extends StatelessWidget {
             },
           );
 
-          if (value) {
+          if (value != null) {
             if (context.mounted) {
+              context.read<BlocDemo>().add(
+                     ChangeInfoDetailEvent(
+                      documentDetails: value as DocumentDetails,
+                    ),
+                  );
               context.read<BlocDemo>().add(
                     const ChangePassNumberEvent(
                       passNumber: 2,
