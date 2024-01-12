@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:verifik/models/data_dialog.dart';
 import 'package:verifik/screen/demo/bloc/bloc.dart';
 import 'package:verifik/screen/demo/repository.dart';
@@ -104,6 +105,13 @@ Future<void> _listener(BuildContext context, DemoState state) async {
     );
   } else if (state is ErrorDetailState) {
     Navigator.pop(context);
+    showToast(
+      state.message,
+      backgroundColor: XigoColors.rybBlue,
+      textStyle: const TextStyle(
+        color: Colors.white,
+      ),
+    );
   }
 }
 
@@ -114,10 +122,21 @@ class CustomDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: ColoredBox(
-        color: Colors.white,
+    final size = MediaQuery.of(context).size;
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: size.width * 0.15,
+        vertical: size.height * 0.30,
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.white,
+          border: Border.all(
+            color: Colors.grey,
+            width: 0.2,
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(XigoSpacing.md),
           child: Column(
@@ -197,7 +216,7 @@ class CustomDialog extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                           color: XigoColors.rybBlue,
                           border: Border.all(
-                            color: Colors.black,
+                            color: Colors.grey,
                             width: 0.2,
                           ),
                         ),
@@ -231,7 +250,8 @@ class CustomDialog extends StatelessWidget {
                       Navigator.pop(context, false);
                     },
                     colorText: Colors.red,
-                    borderColor: Colors.red,
+                    backgroundColor: Colors.white,
+                    borderColor: Colors.grey,
                   ),
                   Gap(
                     XigoResponsive.withSizeByContext(

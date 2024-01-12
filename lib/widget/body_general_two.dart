@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:verifik/utils/spacing.dart';
 
 class BodyGeneralTwo extends StatelessWidget {
   const BodyGeneralTwo({

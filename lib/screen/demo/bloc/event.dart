@@ -17,6 +17,8 @@ class ChangePassNumberEvent extends DemoEvent {
 
 class GetCompareRecognitionEvent extends DemoEvent {}
 
+class GetLivenessDataEvent extends DemoEvent {}
+
 class ChangeSelfieImagenEvent extends DemoEvent {
   const ChangeSelfieImagenEvent({
     required this.imageSelfie,
@@ -41,14 +43,3 @@ class GetDetailsEvent extends DemoEvent {
   });
   final Uint8List imageScanned;
 }
-
-//TODO: revisar para remover
-class ChangedOptionSelectedEvent extends DemoEvent {
-  final int optionSelected;
-
-  const ChangedOptionSelectedEvent({
-    required this.optionSelected,
-  });
-}
-
-class GetProjectsEvent extends DemoEvent {}

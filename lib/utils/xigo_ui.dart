@@ -1,7 +1,9 @@
 class InitProyectUiValues {
   static const String textFooter = "Verifik © 2023 Product of MAT Enterprises";
   static const String partnerWithUs = "Partner with us";
+  static const String partnersUrl = "https://verifik.co/en/partners/";
   static const String talkSales = "Talk to sales";
+  static const String mettingsUrl = "https://meetings.hubspot.com/lina-yepes";
   static const String loadingAnimations =
       "assets/animations/loading/loading.json";
 

@@ -51,19 +51,19 @@ class DocumentType {
   String prompt;
 
   DocumentType({
-    required this.documentType,
-    required this.category,
-    required this.country,
-    required this.ocrRaw,
-    required this.prompt,
+    this.documentType = '',
+    this.category = '',
+    this.country = '',
+    this.ocrRaw = '',
+    this.prompt = '',
   });
 
   factory DocumentType.fromJson(Map<String, dynamic> json) => DocumentType(
-        documentType: json["documentType"],
-        category: json["category"],
-        country: json["country"],
-        ocrRaw: json["ocrRaw"],
-        prompt: json["prompt"],
+        documentType: json["documentType"] ?? '',
+        category: json["category"] ?? '',
+        country: json["country"] ?? '',
+        ocrRaw: json["ocrRaw"] ?? '',
+        prompt: json["prompt"] ?? '',
       );
 
   Map<String, dynamic> toJson() => {
@@ -91,15 +91,15 @@ class Prompt {
   int v;
 
   Prompt({
-    required this.documentType,
-    required this.status,
-    required this.imageValidated,
-    required this.validationMethod,
-    required this.type,
-    required this.id,
-    required this.deleted,
-    required this.documentNumber,
-    required this.url,
+    this.documentType = '',
+    this.status = '',
+    this.imageValidated = false,
+    this.validationMethod = '',
+    this.type = '',
+    this.id = '',
+    this.deleted = false,
+    this.documentNumber = '',
+    this.url = '',
     required this.ocrExtraction,
     required this.updatedAt,
     required this.createdAt,
@@ -107,15 +107,15 @@ class Prompt {
   });
 
   factory Prompt.fromJson(Map<String, dynamic> json) => Prompt(
-        documentType: json["documentType"],
-        status: json["status"],
-        imageValidated: json["imageValidated"],
-        validationMethod: json["validationMethod"],
-        type: json["type"],
-        id: json["_id"],
-        deleted: json["deleted"],
-        documentNumber: json["documentNumber"],
-        url: json["url"],
+        documentType: json["documentType"] ?? '',
+        status: json["status"] ?? '',
+        imageValidated: json["imageValidated"] ?? false,
+        validationMethod: json["validationMethod"] ?? '',
+        type: json["type"] ?? '',
+        id: json["_id"] ?? '',
+        deleted: json["deleted"] ?? false,
+        documentNumber: json["documentNumber"] ?? '',
+        url: json["url"] ?? '',
         ocrExtraction: PromptOcrExtraction.fromJson(json["OCRExtraction"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         createdAt: DateTime.parse(json["createdAt"]),
@@ -146,18 +146,18 @@ class PromptOcrExtraction {
   String documentNumber;
 
   PromptOcrExtraction({
-    required this.firstName,
-    required this.lastName,
-    required this.fullName,
-    required this.documentNumber,
+    this.firstName = '',
+    this.lastName = '',
+    this.fullName = '',
+    this.documentNumber = '',
   });
 
   factory PromptOcrExtraction.fromJson(Map<String, dynamic> json) =>
       PromptOcrExtraction(
-        firstName: json["firstName"],
-        lastName: json["lastName"],
-        fullName: json["fullName"],
-        documentNumber: json["documentNumber"],
+        firstName: json["firstName"] ?? '',
+        lastName: json["lastName"] ?? '',
+        fullName: json["fullName"] ?? '',
+        documentNumber: json["documentNumber"] ?? '',
       );
 
   Map<String, dynamic> toJson() => {
@@ -242,7 +242,7 @@ class StudioOcrExtraction {
     required this.details,
     required this.firstName,
     required this.documentNumber,
-    required this.fullName,
+    this.fullName = '',
   });
 
   factory StudioOcrExtraction.fromJson(Map<String, dynamic> json) =>
@@ -250,7 +250,7 @@ class StudioOcrExtraction {
         details: Details.fromJson(json["details"]),
         firstName: json["firstName"],
         documentNumber: json["documentNumber"],
-        fullName: json["fullName"],
+        fullName: json["fullName"] ?? '',
       );
 
   Map<String, dynamic> toJson() => {

@@ -4,8 +4,11 @@ import 'dart:typed_data';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:verifik/models/compare.dart';
+import 'package:verifik/models/liveness.dart';
 import 'package:verifik/screen/demo/repository.dart';
 import 'package:verifik/models/document.dart';
+import 'package:verifik/utils/http/http_client.dart';
 
 part 'event.dart';
 part 'state.dart';
@@ -17,10 +20,9 @@ class BlocDemo extends Bloc<DemoEvent, DemoState> {
     on<ChangeInfoDetailEvent>(_onChangeInfoDetailEvent);
     on<ChangeSelfieImagenEvent>(_onChangeSelfieImagenEvent);
     on<ChangePassNumberEvent>(_onChangePassNumberEvent);
-    on<ChangedOptionSelectedEvent>(_onChangedOptionSelectedEvent);
     on<GetDetailsEvent>(_onGetDetailsEvent);
     on<GetCompareRecognitionEvent>(_onGetCompareRecognitionEvent);
-    on<GetProjectsEvent>(_onGetProjectsEvent);
+    on<GetLivenessDataEvent>(_onGetLivenessDataEvent);
   }
   final Repository repository;
 
@@ -64,19 +66,6 @@ class BlocDemo extends Bloc<DemoEvent, DemoState> {
     );
   }
 
-  void _onChangedOptionSelectedEvent(
-    ChangedOptionSelectedEvent event,
-    Emitter<DemoState> emit,
-  ) {
-    emit(
-      ChangedOptionSelected(
-        state.model.copyWith(
-          optionSelected: event.optionSelected,
-        ),
-      ),
-    );
-  }
-
   Future<void> _onGetDetailsEvent(
     GetDetailsEvent event,
     Emitter<DemoState> emit,
@@ -94,8 +83,21 @@ class BlocDemo extends Bloc<DemoEvent, DemoState> {
           ),
         ),
       );
-    } catch (_) {
-      emit(ErrorDetailState(state.model));
+    } catch (error) {
+      if (error is DioException) {
+        emit(
+          ErrorDetailState(
+            model: state.model,
+            message: error.response?.data['message'] ?? '',
+          ),
+        );
+        return;
+      }
+      emit(
+        ErrorDetailState(
+          model: state.model,
+        ),
+      );
     }
   }
 
@@ -104,37 +106,74 @@ class BlocDemo extends Bloc<DemoEvent, DemoState> {
     Emitter<DemoState> emit,
   ) async {
     try {
-      emit(LoadingLivenessState(state.model));
+      emit(LoadingCompareRecognitionState(state.model));
       final imageSelfie = base64Encode(state.model.imageSelfie!);
       final imageGallery = base64Encode(state.model.imageScanned!);
-      final documentDetails = await repository.getCompareRecognition(
+
+      final compareData = await repository.getCompareRecognition(
         probe: imageSelfie,
         gallery: imageGallery,
       );
 
       emit(
-        LoadedLivenessState(
-          state.model.copyWith(),
+        LoadedCompareRecognitionState(
+          state.model.copyWith(
+            compare: compareData,
+          ),
         ),
       );
-    } catch (_) {
-      emit(ErrorLivenessState(state.model));
+    } catch (error) {
+      if (error is DioException) {
+        emit(
+          ErrorCompareRecognitionState(
+            model: state.model,
+            message: error.response?.data['message'] ?? '',
+          ),
+        );
+        return;
+      }
+      emit(
+        ErrorCompareRecognitionState(
+          model: state.model,
+        ),
+      );
     }
   }
 
-  void _onGetProjectsEvent(
-    GetProjectsEvent event,
+  Future<void> _onGetLivenessDataEvent(
+    GetLivenessDataEvent event,
     Emitter<DemoState> emit,
-  ) {
-    //TODO: Descomentar
-    //  final projects = repository.getProjects();
+  ) async {
+    try {
+      emit(LoadingLivenessState(state.model));
+      final imageSelfie = base64Encode(state.model.imageSelfie!);
+      final livenessData = await repository.getLiveness(
+        image: imageSelfie,
+      );
 
-    emit(
-      GetProjectsState(
-        state.model.copyWith(
-            // projects: projects,
-            ),
-      ),
-    );
+      emit(
+        LoadedLivenessState(
+          state.model.copyWith(
+            liveness: livenessData,
+          ),
+        ),
+      );
+    } catch (e) {
+      if (e is DioException) {
+        emit(
+          ErrorLivenessState(
+            model: state.model,
+            message: e.response?.data['message'] ?? '',
+          ),
+        );
+        return;
+      }
+
+      emit(
+        ErrorLivenessState(
+          model: state.model,
+        ),
+      );
+    }
   }
 }

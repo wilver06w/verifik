@@ -63,8 +63,8 @@ class Page extends StatelessWidget {
           },
           builder: (context, state) {
             //TODO: Descomentar
-            //return state == 0 ? const BodyHome() : const BodyPass();
-            return const BodyPass();
+            return state == 0 ? const BodyHome() : const BodyPass();
+            //   return const BodyPass();
           },
         ),
       ),

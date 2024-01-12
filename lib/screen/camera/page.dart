@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:verifik/screen/demo/bloc/bloc.dart';
 import 'package:verifik/utils/camera/bloc/bloc.dart';
 import 'package:verifik/utils/colors.dart';
@@ -100,18 +101,36 @@ class CameraPage extends StatelessWidget {
 
   Future<void> _listenerDemo(BuildContext context, DemoState state) async {
     if (state is ChangedSelfieImageState) {
-      context.read<BlocDemo>().add(GetCompareRecognitionEvent());
+      context.read<BlocDemo>().add(GetLivenessDataEvent());
     } else if (state is LoadingLivenessState) {
       VerifikLoading.show(context);
     } else if (state is LoadedLivenessState) {
+      context.read<BlocDemo>().add(GetCompareRecognitionEvent());
+    } else if (state is ErrorLivenessState) {
+      Navigator.pop(context);
+      showToast(
+        state.message,
+        backgroundColor: XigoColors.rybBlue,
+        textStyle: const TextStyle(
+          color: Colors.white,
+        ),
+      );
+    } else if (state is ErrorCompareRecognitionState) {
+      Navigator.pop(context);
+      showToast(
+        state.message,
+        backgroundColor: XigoColors.rybBlue,
+        textStyle: const TextStyle(
+          color: Colors.white,
+        ),
+      );
+    } else if (state is LoadedCompareRecognitionState) {
       Navigator.pop(context);
       context.read<BlocDemo>().add(
             const ChangePassNumberEvent(
               passNumber: 4,
             ),
           );
-    } else if (state is ErrorLivenessState) {
-      Navigator.pop(context);
     }
   }
 

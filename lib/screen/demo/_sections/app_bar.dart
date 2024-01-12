@@ -22,19 +22,30 @@ class _MyAppBarState extends State<MyAppBar> {
         width: 120,
       ),
       actions: [
-        const ItemAction(
+        ItemAction(
           imageUrl: InitProyectUiValues.demoHeaderPartner,
           title: InitProyectUiValues.partnerWithUs,
+          onTap: () {
+            Functions.launchInBrowser(
+              url: InitProyectUiValues.partnersUrl,
+            );
+          },
         ),
-        const ItemAction(
+        ItemAction(
           imageUrl: InitProyectUiValues.demoHeaderSupportAgent,
           title: InitProyectUiValues.talkSales,
+          onTap: () {
+            Functions.launchInBrowser(
+              url: InitProyectUiValues.mettingsUrl,
+            );
+          },
         ),
         ItemAction(
           imageCountry:
               // "https://demo.verifik.co/assets/images/flags/US.svg"
 
               widget.imageCountryUrl,
+          onTap: () {},
         ),
       ],
     );
@@ -47,49 +58,53 @@ class ItemAction extends StatelessWidget {
     this.imageUrl = '',
     this.title = '',
     this.imageCountry = '',
+    required this.onTap,
   });
 
   final String imageUrl;
   final String imageCountry;
   final String title;
-
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: XigoResponsive.withSizeByContext(
-          context,
-          pixels: 3,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: XigoResponsive.withSizeByContext(
+            context,
+            pixels: 3,
+          ),
         ),
-      ),
-      child: Row(
-        children: [
-          if (imageUrl.isNotEmpty)
-            Image.network(
-              imageUrl,
-              width: 30,
-              height: 30,
-            ),
-          if (imageCountry.isNotEmpty)
-            SvgPicture.network(
-              imageCountry,
-              width: 30,
-              height: 30,
-            ),
-          if (title.isNotEmpty) ...[
-            Gap(
-              XigoResponsive.withSizeByContext(
-                context,
-                pixels: XigoSpacing.xxs,
+        child: Row(
+          children: [
+            if (imageUrl.isNotEmpty)
+              Image.network(
+                imageUrl,
+                width: 30,
+                height: 30,
               ),
-            ),
-            XigoText.body(
-              label: title,
-              fontWeight: FontWeight.w800,
-              color: Colors.white,
-            ),
-          ]
-        ],
+            if (imageCountry.isNotEmpty)
+              SvgPicture.network(
+                imageCountry,
+                width: 30,
+                height: 30,
+              ),
+            if (title.isNotEmpty) ...[
+              Gap(
+                XigoResponsive.withSizeByContext(
+                  context,
+                  pixels: XigoSpacing.xxs,
+                ),
+              ),
+              XigoText.body(
+                label: title,
+                fontWeight: FontWeight.w800,
+                color: Colors.white,
+              ),
+            ]
+          ],
+        ),
       ),
     );
   }

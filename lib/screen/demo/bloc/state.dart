@@ -24,6 +24,23 @@ class ChangedSelfieImageState extends DemoState {
   const ChangedSelfieImageState(Model model) : super(model);
 }
 
+class LoadingCompareRecognitionState extends DemoState {
+  const LoadingCompareRecognitionState(Model model) : super(model);
+}
+
+class LoadedCompareRecognitionState extends DemoState {
+  const LoadedCompareRecognitionState(Model model) : super(model);
+}
+
+class ErrorCompareRecognitionState extends DemoState {
+  const ErrorCompareRecognitionState({
+    required Model model,
+    this.message = '',
+  }) : super(model);
+
+  final String message;
+}
+
 class LoadingLivenessState extends DemoState {
   const LoadingLivenessState(Model model) : super(model);
 }
@@ -33,7 +50,12 @@ class LoadedLivenessState extends DemoState {
 }
 
 class ErrorLivenessState extends DemoState {
-  const ErrorLivenessState(Model model) : super(model);
+  const ErrorLivenessState({
+    required Model model,
+    this.message = '',
+  }) : super(model);
+
+  final String message;
 }
 
 class LoadingDetailsState extends DemoState {
@@ -45,49 +67,45 @@ class LoadedDetailState extends DemoState {
 }
 
 class ErrorDetailState extends DemoState {
-  const ErrorDetailState(Model model) : super(model);
-}
+  const ErrorDetailState({
+    required Model model,
+    this.message = '',
+  }) : super(model);
 
-//TODO: revisar remover.
-class ChangedOptionSelected extends DemoState {
-  const ChangedOptionSelected(Model model) : super(model);
-}
-
-class GetExperiencesState extends DemoState {
-  const GetExperiencesState(Model model) : super(model);
-}
-
-class GetProjectsState extends DemoState {
-  const GetProjectsState(Model model) : super(model);
+  final String message;
 }
 
 class Model extends Equatable {
   const Model({
-    this.optionSelected = 0,
 //TODO: pasas a 0
-    this.numberPass = 3,
+    this.numberPass = 0,
     this.documentDetails,
+    this.liveness,
+    this.compare,
     this.imageScanned,
     this.imageSelfie,
   });
 
-  final int optionSelected;
   final int numberPass;
   final DocumentDetails? documentDetails;
+  final Liveness? liveness;
+  final Compare? compare;
   final Uint8List? imageScanned;
   final Uint8List? imageSelfie;
 
   Model copyWith({
-    int? optionSelected,
     int? numberPass,
     Uint8List? imageScanned,
     Uint8List? imageSelfie,
     DocumentDetails? documentDetails,
+    Liveness? liveness,
+    Compare? compare,
   }) {
     return Model(
-      optionSelected: optionSelected ?? this.optionSelected,
       numberPass: numberPass ?? this.numberPass,
       documentDetails: documentDetails ?? this.documentDetails,
+      liveness: liveness ?? this.liveness,
+      compare: compare ?? this.compare,
       imageScanned: imageScanned ?? this.imageScanned,
       imageSelfie: imageSelfie ?? this.imageSelfie,
     );
@@ -96,9 +114,10 @@ class Model extends Equatable {
   @override
   List<Object?> get props {
     return [
-      optionSelected,
       numberPass,
       documentDetails,
+      liveness,
+      compare,
       imageScanned,
       imageSelfie,
     ];

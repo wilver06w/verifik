@@ -20,7 +20,7 @@ class ViewCamera extends StatelessWidget {
             ),
             height: XigoResponsive.heightSizeByContext(
               context,
-              pixels: 500,
+              pixels: 400,
             ),
             child: CameraPreview(
               state.model.cameraController!,
@@ -34,7 +34,7 @@ class ViewCamera extends StatelessWidget {
           ),
           height: XigoResponsive.heightSizeByContext(
             context,
-            pixels: 500,
+            pixels: 400,
           ),
           decoration: BoxDecoration(
             color: Colors.white.withAlpha(95),

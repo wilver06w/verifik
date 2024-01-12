@@ -18,7 +18,7 @@ class ViewImageCaptured extends StatelessWidget {
             ),
             height: XigoResponsive.heightSizeByContext(
               context,
-              pixels: 500,
+              pixels: 400,
             ),
           )
         : OctoImage(
