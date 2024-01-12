@@ -7,6 +7,7 @@ import 'package:verifik/screen/demo/bloc/bloc.dart';
 import 'package:verifik/screen/demo/repository.dart';
 import 'package:verifik/screen/document/page.dart';
 import 'package:verifik/screen/home/page.dart';
+import 'package:verifik/screen/result/page.dart';
 import 'package:verifik/screen/scanning/page.dart';
 import 'package:verifik/utils/camera/bloc/bloc.dart';
 import 'package:verifik/utils/colors.dart';
@@ -17,7 +18,6 @@ import 'package:verifik/utils/responsive.dart';
 import 'package:verifik/utils/spacing.dart';
 import 'package:verifik/utils/text/text.dart';
 import 'package:verifik/utils/xigo_ui.dart';
-import 'package:verifik/widget/button.dart';
 import 'package:verifik/widget/item_circular.dart';
 
 part 'package:verifik/screen/demo/_sections/app_bar.dart';
@@ -40,8 +40,6 @@ class Page extends StatelessWidget {
             repository: Repository(
               xigoHttpClient: Modular.get<XigoHttpClient>(),
             ),
-            //TODO: Creo que hay que remover, no hay necesidad de llamarlo.
-            // httpClient: Modular.get<XigoHttpClient>(),
           ),
         ),
         BlocProvider(

@@ -1,4 +1,4 @@
-part of 'package:verifik/screen/document/page.dart';
+part of 'package:verifik/screen/result/page.dart';
 
 class InfoRight extends StatelessWidget {
   const InfoRight({
@@ -37,6 +37,67 @@ class InfoRight extends StatelessWidget {
                 ItemSection(
                   title: InitProyectUiValues.userAgent,
                   subTitle: app.infoDevice?.userAgent ?? '',
+                ),
+              ],
+            );
+          },
+        ),
+        BlocBuilder<BlocDemo, DemoState>(
+          builder: (context, state) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ItemPercent(
+                  title: InitProyectUiValues.livenessScore,
+                  percent: state.model.compare?.data.result.score ?? 0.0,
+                  colorsProgress: XigoColors.rybBlue,
+                ),
+                Gap(
+                  XigoResponsive.withSizeByContext(
+                    context,
+                    pixels: XigoSpacing.xs,
+                  ),
+                ),
+                ItemPercent(
+                  title: InitProyectUiValues.matchScore,
+                  percent:
+                      state.model.liveness?.data.result.livenessScore ?? 0.0,
+                  colorsProgress: XigoColors.maximumRed,
+                ),
+              ],
+            );
+          },
+        ),
+        Gap(
+          XigoResponsive.heightSizeByContext(
+            context,
+            pixels: XigoSpacing.xl,
+          ),
+        ),
+        BlocBuilder<BlocDemo, DemoState>(
+          builder: (context, state) {
+            return SectionInfo(
+              title: InitProyectUiValues.livenessMatchResults,
+              items: [
+                ItemSection(
+                  title: InitProyectUiValues.livenessScore,
+                  subTitle:
+                      '${Functions.convertirAInt(value: state.model.liveness?.data.result.livenessScore ?? 0.0)}',
+                ),
+                ItemSection(
+                  title: InitProyectUiValues.livenessPassed,
+                  subTitle:
+                      '${(state.model.liveness?.data.result.passed ?? false)}',
+                ),
+                ItemSection(
+                  title: InitProyectUiValues.minimumLivenessScore,
+                  subTitle:
+                      '${Functions.convertirAInt(value: state.model.liveness?.data.livenessMinScore ?? 0.0)}',
+                ),
+                ItemSection(
+                  title: InitProyectUiValues.matchScore,
+                  subTitle:
+                      '${Functions.convertirAInt(value: state.model.compare?.data.result.score ?? 0.0)}',
                 ),
               ],
             );
@@ -132,41 +193,18 @@ class InfoRight extends StatelessWidget {
             pixels: XigoSpacing.md,
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        Column(
           children: [
-            Expanded(
-              child: Button(
-                title: InitProyectUiValues.scanAgain,
-                onPressed: () {
-                  context.read<BlocDemo>().add(
-                        const ChangePassNumberEvent(
-                          passNumber: 1,
-                        ),
-                      );
-                },
-                colorText: XigoColors.majorelleBlue,
-                borderColor: XigoColors.azureishWhite,
-              ),
-            ),
-            Gap(
-              XigoResponsive.withSizeByContext(
-                context,
-                pixels: XigoSpacing.md,
-              ),
-            ),
-            Expanded(
-              child: Button(
-                title: InitProyectUiValues.continu,
-                backgroundColor: XigoColors.majorelleBlue,
-                onPressed: () {
-                  context.read<BlocDemo>().add(
-                        const ChangePassNumberEvent(
-                          passNumber: 3,
-                        ),
-                      );
-                },
-              ),
+            Button(
+              title: InitProyectUiValues.restartDemo,
+              backgroundColor: XigoColors.majorelleBlue,
+              onPressed: () {
+                context.read<BlocDemo>().add(
+                      const ChangePassNumberEvent(
+                        passNumber: 0,
+                      ),
+                    );
+              },
             ),
           ],
         ),

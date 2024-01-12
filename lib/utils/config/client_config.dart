@@ -1,5 +1,6 @@
 library mobile_client_config;
 
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:verifik/models/language.dart';
 import 'package:verifik/utils/config/countries.dart';
@@ -22,7 +23,8 @@ class AppConfig {
   static AppConfig? _singleton;
 
   final bool isProd = (const bool.fromEnvironment('dart.vm.product'));
-  bool isWeb = false;
+
+  WebBrowserInfo? infoDevice;
   late Language _country;
 
   String version = '0';

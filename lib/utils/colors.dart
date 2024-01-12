@@ -24,6 +24,9 @@ class XigoColors {
   ///rybBlue
   static const Color rybBlue = Color(0xFF0036e7);
 
+  ///maximumRed
+  static const Color maximumRed = Color(0xFFdc2626);
+
   ///textColorSecondary
   static const Color textColorSecondary = Color(0xFF64748b);
 

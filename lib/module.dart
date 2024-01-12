@@ -22,7 +22,7 @@ class AppModule extends Module {
           return AppConfig()
             ..version = App.instance.version
             ..deviceId = App.instance.deviceId
-            ..isWeb = App.instance.isWeb;
+            ..infoDevice = App.instance.infoDevice;
         },
         isLazy: false,
       ),

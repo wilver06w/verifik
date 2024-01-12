@@ -1,9 +1,12 @@
-import 'package:verifik/utils/functions.dart';
-import 'package:verifik/utils/preferences.dart';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+
+import 'package:verifik/utils/functions.dart';
+import 'package:verifik/utils/preferences.dart';
 
 class App {
   static final instance = App._();
@@ -13,7 +16,7 @@ class App {
   Map<String, dynamic> config = {};
   String version = '';
   String deviceId = '';
-  bool isWeb = false;
+  WebBrowserInfo? infoDevice;
 
   App._();
 
@@ -29,10 +32,12 @@ class App {
     try {
       PackageInfo dataPlatform = await PackageInfo.fromPlatform();
       version = dataPlatform.version;
+      DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+      if (kIsWeb) {
+        final deviceData = await deviceInfoPlugin.webBrowserInfo;
+        infoDevice = deviceData;
+      }
       deviceId = await Functions.initPlatformState();
-      isWeb = await Functions.validateDeviceId(
-        deviceId: deviceId,
-      );
     } catch (_) {}
   }
 

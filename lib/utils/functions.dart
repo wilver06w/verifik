@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:platform_device_id/platform_device_id.dart';
-import 'package:verifik/utils/xigo_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:verifik/utils/xigo_ui.dart';
 
 class Functions {
   static Future<void> launchInBrowser({required String url}) async {
@@ -13,12 +13,11 @@ class Functions {
     }
   }
 
-  static Future<bool> validateDeviceId({required String deviceId}) async {
-    try {
-      return deviceId.contains('AppleWebKit');
-    } catch (_) {
-      return false;
+  static int convertirAInt({required double value}) {
+    if (value > 0.0) {
+      return (value * 100).toInt();
     }
+    return 0;
   }
 
   static Future<String> initPlatformState() async {

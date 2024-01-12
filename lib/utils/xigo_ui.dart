@@ -10,6 +10,11 @@ class InitProyectUiValues {
   static const String documentScanned = "Document scanned";
   static const String frontSide = "Front side";
 
+  static const String livenessMatchResults = "Liveness & Match results";
+  static const String livenessScore = "Liveness score";
+  static const String livenessPassed = "Liveness passed";
+  static const String minimumLivenessScore = "Minimum liveness score";
+  static const String matchScore = "Match score";
   static const String generalInformation = "General information";
   static const String device = "Device";
   static const String lenguaje = "Lenguaje";
@@ -31,6 +36,8 @@ class InitProyectUiValues {
   static const String pleaseComeBitCloserBetterFaceRecognition =
       "Please come a bit closer for better face recognition.";
   static const String goBack = "Go back";
+
+  static const String selfie = "Selfie";
 
   static const String uploadImageTemp =
       "https://cdn.verifik.co/demo/anverso2x.png";
@@ -77,6 +84,7 @@ class InitProyectUiValues {
 
   static const String findFileDevice = "Find the file on your device";
   static const String continu = "Continue";
+  static const String restartDemo = "Restart demo";
   static const String takePhoto = "Take photo";
   static const String cancel = "Cancel";
   static const String uploadFile = "Upload file";
