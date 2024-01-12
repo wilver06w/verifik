@@ -17,11 +17,11 @@ class ItemCard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: XigoResponsive.heightSizeByContext(
+          height: VerifikResponsive.heightSizeByContext(
             context,
             pixels: 250,
           ),
-          width: XigoResponsive.withSizeByContext(
+          width: VerifikResponsive.withSizeByContext(
             context,
             pixels: 45,
           ),
@@ -40,7 +40,7 @@ class ItemCard extends StatelessWidget {
             ],
           ),
           margin: EdgeInsets.only(
-            bottom: XigoResponsive.heightSizeByContext(
+            bottom: VerifikResponsive.heightSizeByContext(
               context,
               pixels: 20,
             ),
@@ -49,35 +49,35 @@ class ItemCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Gap(
-                XigoResponsive.withSizeByContext(
+                VerifikResponsive.withSizeByContext(
                   context,
-                  pixels: XigoSpacing.xs,
+                  pixels: VerifikSpacing.xs,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image.network(
                   imageUrl,
-                  width: XigoResponsive.withSizeByContext(
+                  width: VerifikResponsive.withSizeByContext(
                     context,
                     pixels: 100,
                   ),
-                  height: XigoResponsive.heightSizeByContext(
+                  height: VerifikResponsive.heightSizeByContext(
                     context,
                     pixels: 124,
                   ),
                 ),
               ),
               Gap(
-                XigoResponsive.heightSizeByContext(
+                VerifikResponsive.heightSizeByContext(
                   context,
-                  pixels: XigoSpacing.md,
+                  pixels: VerifikSpacing.md,
                 ),
               ),
-              XigoText.body(
+              VerifikText.body(
                 label: title,
                 fontWeight: FontWeight.w600,
-                color: XigoColors.catalinaBlue.withOpacity(0.60),
+                color: VerifikColors.catalinaBlue.withOpacity(0.60),
                 textAlign: TextAlign.center,
               ),
             ],

@@ -10,7 +10,7 @@ import 'package:verifik/app/utils/config/client_config.dart';
 import 'package:verifik/app/utils/responsive.dart';
 import 'package:verifik/app/utils/spacing.dart';
 import 'package:verifik/app/utils/text/text.dart';
-import 'package:verifik/app/utils/xigo_ui.dart';
+import 'package:verifik/app/utils/verifik_ui.dart';
 import 'package:verifik/app/widget/body_general_two.dart';
 import 'package:verifik/app/widget/button.dart';
 import 'package:verifik/app/widget/item_info.dart';

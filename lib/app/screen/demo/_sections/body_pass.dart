@@ -59,11 +59,12 @@ class ItemPass extends StatelessWidget {
           passNumber: '$passNumber',
           isActive: passNumber == passSelected,
         ),
-        Gap(XigoResponsive.withSizeByContext(context, pixels: 5)),
-        XigoText.body(
+        Gap(VerifikResponsive.withSizeByContext(context, pixels: 5)),
+        VerifikText.body(
           label: title,
-          color:
-              passNumber == passSelected ? Colors.black : XigoColors.textColor,
+          color: passNumber == passSelected
+              ? Colors.black
+              : VerifikColors.textColor,
           fontWeight:
               passNumber == passSelected ? FontWeight.bold : FontWeight.w400,
         ),

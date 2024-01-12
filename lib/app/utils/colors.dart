@@ -9,8 +9,8 @@
 
 import 'package:flutter/material.dart';
 
-class XigoColors {
-  const XigoColors._();
+class VerifikColors {
+  const VerifikColors._();
 
   ///backgroundColor
   static const Color backgroundColor = Color(0xFFF1F5F9);

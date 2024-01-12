@@ -21,45 +21,45 @@ class ItemID extends StatelessWidget {
     return Column(
       children: [
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.xxl,
+            pixels: VerifikSpacing.xxl,
           ),
         ),
-        XigoText.fontSizeCustom(
+        VerifikText.fontSizeCustom(
           label: title,
-          color: XigoColors.rybBlue,
+          color: VerifikColors.rybBlue,
           textAlign: TextAlign.center,
           fontSize: 25,
           fontWeight: FontWeight.w700,
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.md,
+            pixels: VerifikSpacing.md,
           ),
         ),
         Image.network(
           imageUrl,
-          width: XigoResponsive.withSizeByContext(
+          width: VerifikResponsive.withSizeByContext(
             context,
             pixels: 260,
           ),
-          height: XigoResponsive.heightSizeByContext(
+          height: VerifikResponsive.heightSizeByContext(
             context,
             pixels: 170,
           ),
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.xxl,
+            pixels: VerifikSpacing.xxl,
           ),
         ),
         Button(
           title: titleButton,
           onPressed: onPressed,
-          backgroundColor: XigoColors.majorelleBlue,
+          backgroundColor: VerifikColors.majorelleBlue,
         ),
       ],
     );

@@ -15,9 +15,9 @@ class SectionInfo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        XigoText.fontSizeCustom(
+        VerifikText.fontSizeCustom(
           label: title,
-          color: XigoColors.rybBlue.withAlpha(77),
+          color: VerifikColors.rybBlue.withAlpha(77),
           fontSize: 30,
           fontWeight: FontWeight.w700,
         ),

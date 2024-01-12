@@ -11,8 +11,8 @@ import 'package:verifik/app/utils/responsive.dart';
 import 'package:verifik/app/utils/spacing.dart';
 import 'package:verifik/app/utils/text/text.dart';
 import 'package:verifik/app/utils/verifik_loading.dart';
-import 'package:verifik/app/widget/xigo_loading_circle.dart';
-import 'package:verifik/app/utils/xigo_ui.dart';
+import 'package:verifik/app/widget/verifik_loading_circle.dart';
+import 'package:verifik/app/utils/verifik_ui.dart';
 import 'package:verifik/app/widget/button.dart';
 
 part 'package:verifik/app/screen/camera/_sections/view_camera.dart';
@@ -35,24 +35,23 @@ class CameraPage extends StatelessWidget {
           ),
         ],
         child: Padding(
-          padding: const EdgeInsets.all(XigoSpacing.sm),
+          padding: const EdgeInsets.all(VerifikSpacing.sm),
           child: Column(
             children: [
-              XigoText.fontSizeCustom(
-                label: InitProyectUiValues.getCloser,
+              VerifikText.fontSizeCustom(
+                label: VerifikUiValues.getCloser,
                 color: Colors.black,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
-              XigoText.body(
-                label: InitProyectUiValues
-                    .pleaseComeBitCloserBetterFaceRecognition,
+              VerifikText.body(
+                label: VerifikUiValues.pleaseComeBitCloserBetterFaceRecognition,
                 color: Colors.black,
               ),
               Gap(
-                XigoResponsive.heightSizeByContext(
+                VerifikResponsive.heightSizeByContext(
                   context,
-                  pixels: XigoSpacing.xs,
+                  pixels: VerifikSpacing.xs,
                 ),
               ),
               BlocBuilder<BlocCamera, BlocCameraState>(
@@ -69,19 +68,19 @@ class CameraPage extends StatelessWidget {
                                     state: state,
                                   )
                                 : const Center(
-                                    child: XigoLoadingCircle(),
+                                    child: VerifikLoadingCircle(),
                                   ),
                   );
                 },
               ),
               Gap(
-                XigoResponsive.heightSizeByContext(
+                VerifikResponsive.heightSizeByContext(
                   context,
-                  pixels: XigoSpacing.md,
+                  pixels: VerifikSpacing.md,
                 ),
               ),
               Button(
-                title: InitProyectUiValues.goBack,
+                title: VerifikUiValues.goBack,
                 onPressed: () {
                   context.read<BlocDemo>().add(
                         const ChangePassNumberEvent(
@@ -89,8 +88,8 @@ class CameraPage extends StatelessWidget {
                         ),
                       );
                 },
-                colorText: XigoColors.majorelleBlue,
-                borderColor: XigoColors.azureishWhite,
+                colorText: VerifikColors.majorelleBlue,
+                borderColor: VerifikColors.azureishWhite,
               ),
             ],
           ),
@@ -110,7 +109,7 @@ class CameraPage extends StatelessWidget {
       Navigator.pop(context);
       showToast(
         state.message,
-        backgroundColor: XigoColors.rybBlue,
+        backgroundColor: VerifikColors.rybBlue,
         textStyle: const TextStyle(
           color: Colors.white,
         ),
@@ -119,7 +118,7 @@ class CameraPage extends StatelessWidget {
       Navigator.pop(context);
       showToast(
         state.message,
-        backgroundColor: XigoColors.rybBlue,
+        backgroundColor: VerifikColors.rybBlue,
         textStyle: const TextStyle(
           color: Colors.white,
         ),

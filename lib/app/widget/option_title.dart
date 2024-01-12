@@ -15,9 +15,9 @@ class OptionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: XigoText.labelText(
+      child: VerifikText.labelText(
         label: title,
-        color: XigoColors.textColor,
+        color: VerifikColors.textColor,
       ),
     );
   }

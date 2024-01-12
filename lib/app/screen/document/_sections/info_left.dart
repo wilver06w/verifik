@@ -10,35 +10,35 @@ class InfoLeft extends StatelessWidget {
     return Column(
       children: [
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.xxl,
+            pixels: VerifikSpacing.xxl,
           ),
         ),
-        XigoText.fontSizeCustom(
-          label: InitProyectUiValues.documentScanned,
-          color: XigoColors.rybBlue.withAlpha(77),
+        VerifikText.fontSizeCustom(
+          label: VerifikUiValues.documentScanned,
+          color: VerifikColors.rybBlue.withAlpha(77),
           textAlign: TextAlign.center,
           fontSize: 30,
           fontWeight: FontWeight.w700,
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.lg,
+            pixels: VerifikSpacing.lg,
           ),
         ),
-        XigoText.fontSizeCustom(
-          label: InitProyectUiValues.frontSide,
+        VerifikText.fontSizeCustom(
+          label: VerifikUiValues.frontSide,
           color: Colors.black,
           textAlign: TextAlign.center,
           fontSize: 20,
           fontWeight: FontWeight.w700,
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.xs,
+            pixels: VerifikSpacing.xs,
           ),
         ),
         BlocBuilder<BlocDemo, DemoState>(
@@ -46,11 +46,11 @@ class InfoLeft extends StatelessWidget {
             return state.model.imageScanned != null
                 ? Image.memory(
                     state.model.imageScanned!,
-                    width: XigoResponsive.withSizeByContext(
+                    width: VerifikResponsive.withSizeByContext(
                       context,
                       pixels: 350,
                     ),
-                    height: XigoResponsive.heightSizeByContext(
+                    height: VerifikResponsive.heightSizeByContext(
                       context,
                       pixels: 197,
                     ),

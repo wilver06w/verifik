@@ -10,7 +10,7 @@ class Button extends StatelessWidget {
     required this.title,
     this.onPressed,
     this.colorText = Colors.white,
-    this.borderColor = XigoColors.majorelleBlue,
+    this.borderColor = VerifikColors.majorelleBlue,
     this.backgroundColor,
   });
   final String title;
@@ -37,16 +37,16 @@ class Button extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: XigoResponsive.withSizeByContext(
+          horizontal: VerifikResponsive.withSizeByContext(
             context,
-            pixels: XigoSpacing.xs,
+            pixels: VerifikSpacing.xs,
           ),
-          vertical: XigoResponsive.heightSizeByContext(
+          vertical: VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.sm,
+            pixels: VerifikSpacing.sm,
           ),
         ),
-        child: XigoText.labelText(
+        child: VerifikText.labelText(
           label: title,
           color: colorText,
         ),

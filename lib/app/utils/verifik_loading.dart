@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:verifik/app/utils/responsive.dart';
 import 'package:verifik/app/utils/spacing.dart';
-import 'package:verifik/app/utils/xigo_ui.dart';
+import 'package:verifik/app/utils/verifik_ui.dart';
 
 class VerifikLoading {
   static void show(
@@ -17,14 +17,14 @@ class VerifikLoading {
         return PopScope(
           canPop: false,
           child: Lottie.asset(
-            InitProyectUiValues.loadingAnimations,
-            height: XigoResponsive.heightSizeByContext(
+            VerifikUiValues.loadingAnimations,
+            height: VerifikResponsive.heightSizeByContext(
               context,
-              pixels: XigoSpacing.xs,
+              pixels: VerifikSpacing.xs,
             ),
-            width: XigoResponsive.withSizeByContext(
+            width: VerifikResponsive.withSizeByContext(
               context,
-              pixels: XigoSpacing.xs,
+              pixels: VerifikSpacing.xs,
             ),
           ),
         );

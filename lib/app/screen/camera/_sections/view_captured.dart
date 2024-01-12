@@ -12,26 +12,26 @@ class ViewImageCaptured extends StatelessWidget {
     return state.model.selfieImageMemory != null
         ? Image.memory(
             state.model.selfieImageMemory!,
-            width: XigoResponsive.withSizeByContext(
+            width: VerifikResponsive.withSizeByContext(
               context,
               pixels: 270,
             ),
-            height: XigoResponsive.heightSizeByContext(
+            height: VerifikResponsive.heightSizeByContext(
               context,
               pixels: 400,
             ),
           )
         : OctoImage(
-            width: XigoResponsive.withSizeByContext(
+            width: VerifikResponsive.withSizeByContext(
               context,
               pixels: 310,
             ),
-            height: XigoResponsive.heightSizeByContext(
+            height: VerifikResponsive.heightSizeByContext(
               context,
               pixels: 120,
             ),
             image: FileImage(state.model.selfieImageFile!),
-            placeholderBuilder: (_) => const XigoLoadingCircle(),
+            placeholderBuilder: (_) => const VerifikLoadingCircle(),
           );
   }
 }

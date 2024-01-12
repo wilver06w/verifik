@@ -14,11 +14,11 @@ class ViewCamera extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20.0),
           child: SizedBox(
-            width: XigoResponsive.withSizeByContext(
+            width: VerifikResponsive.withSizeByContext(
               context,
               pixels: 270,
             ),
-            height: XigoResponsive.heightSizeByContext(
+            height: VerifikResponsive.heightSizeByContext(
               context,
               pixels: 400,
             ),
@@ -28,11 +28,11 @@ class ViewCamera extends StatelessWidget {
           ),
         ),
         Container(
-          width: XigoResponsive.withSizeByContext(
+          width: VerifikResponsive.withSizeByContext(
             context,
             pixels: 270,
           ),
-          height: XigoResponsive.heightSizeByContext(
+          height: VerifikResponsive.heightSizeByContext(
             context,
             pixels: 400,
           ),
@@ -53,11 +53,11 @@ class ViewCamera extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  width: XigoResponsive.withSizeByContext(
+                  width: VerifikResponsive.withSizeByContext(
                     context,
                     pixels: 120,
                   ),
-                  height: XigoResponsive.heightSizeByContext(
+                  height: VerifikResponsive.heightSizeByContext(
                     context,
                     pixels: 250,
                   ),
@@ -72,14 +72,14 @@ class ViewCamera extends StatelessWidget {
                   ),
                 ),
                 Gap(
-                  XigoResponsive.heightSizeByContext(
+                  VerifikResponsive.heightSizeByContext(
                     context,
-                    pixels: XigoSpacing.md,
+                    pixels: VerifikSpacing.md,
                   ),
                 ),
                 Button(
-                  title: InitProyectUiValues.takePhoto,
-                  backgroundColor: XigoColors.majorelleBlue,
+                  title: VerifikUiValues.takePhoto,
+                  backgroundColor: VerifikColors.majorelleBlue,
                   onPressed: () {
                     context.read<BlocCamera>().add(
                           CaptureImageEvent(),

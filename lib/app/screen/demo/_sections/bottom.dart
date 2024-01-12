@@ -13,17 +13,15 @@ class BodyBottom extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical:XigoSpacing.md
-        ),
+        padding: const EdgeInsets.symmetric(vertical: VerifikSpacing.md),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            XigoText.labelText(
-              label: InitProyectUiValues.textFooter,
+            VerifikText.labelText(
+              label: VerifikUiValues.textFooter,
             ),
-            XigoText.xSmall(
-              label: '${InitProyectUiValues.version} ${app.version}',
+            VerifikText.xSmall(
+              label: '${VerifikUiValues.version} ${app.version}',
             ),
           ],
         ),

@@ -18,7 +18,7 @@ import 'package:verifik/app/utils/http/http_client.dart'
 import 'package:verifik/app/utils/responsive.dart';
 import 'package:verifik/app/utils/spacing.dart';
 import 'package:verifik/app/utils/text/text.dart';
-import 'package:verifik/app/utils/xigo_ui.dart';
+import 'package:verifik/app/utils/verifik_ui.dart';
 import 'package:verifik/app/widget/item_circular.dart';
 
 part 'package:verifik/app/screen/demo/_sections/app_bar.dart';
@@ -39,7 +39,7 @@ class Page extends StatelessWidget {
         BlocProvider<BlocDemo>(
           create: (context) => BlocDemo(
             repository: Repository(
-              xigoHttpClient: Modular.get<XigoHttpClient>(),
+              verifikHttpClient: Modular.get<VerifikHttpClient>(),
             ),
           ),
         ),
@@ -48,7 +48,7 @@ class Page extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        backgroundColor: XigoColors.backgroundColor,
+        backgroundColor: VerifikColors.backgroundColor,
         appBar: MyAppBar(
           imageCountryUrl: app.country.imageUrl,
         ),

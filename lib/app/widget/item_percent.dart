@@ -13,7 +13,7 @@ class ItemPercent extends StatelessWidget {
     required this.title,
     required this.percent,
     required this.colorsProgress,
-    this.colorText = XigoColors.rybBlue,
+    this.colorText = VerifikColors.rybBlue,
   });
 
   final String title;
@@ -25,30 +25,30 @@ class ItemPercent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        XigoText.fontSizeCustom(
+        VerifikText.fontSizeCustom(
           label: title,
           fontSize: 20,
           color: Colors.black,
           fontWeight: FontWeight.w700,
         ),
         Gap(
-          XigoResponsive.withSizeByContext(
+          VerifikResponsive.withSizeByContext(
             context,
-            pixels: XigoSpacing.md,
+            pixels: VerifikSpacing.md,
           ),
         ),
         CircularPercentIndicator(
           radius: 90.0,
           lineWidth: 20.0,
           percent: percent,
-          center: XigoText.fontSizeCustom(
+          center: VerifikText.fontSizeCustom(
             label: '${Functions.convertirAInt(
               value: percent,
             )}%',
             color: colorText,
             fontSize: 35,
           ),
-          backgroundColor: XigoColors.azureishWhite,
+          backgroundColor: VerifikColors.azureishWhite,
           progressColor: colorsProgress,
         ),
       ],

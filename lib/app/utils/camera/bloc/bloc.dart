@@ -10,7 +10,7 @@ import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as pat;
 import 'package:path_provider/path_provider.dart';
-import 'package:verifik/app/utils/xigo_ui.dart';
+import 'package:verifik/app/utils/verifik_ui.dart';
 
 part 'event.dart';
 part 'state.dart';
@@ -56,8 +56,8 @@ class BlocCamera extends bloc.Bloc<EventCamera, BlocCameraState> {
           ErrorState(
             state.model,
             error: CameraException(
-              InitProyectUiValues.noCameraAvailable,
-              InitProyectUiValues.deviceNotHaveCamera,
+              VerifikUiValues.noCameraAvailable,
+              VerifikUiValues.deviceNotHaveCamera,
             ),
           ),
         );

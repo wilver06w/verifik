@@ -1,4 +1,4 @@
-class InitProyectUiValues {
+class VerifikUiValues  {
   static const String textFooter = "Verifik © 2023 Product of MAT Enterprises";
   static const String partnerWithUs = "Partner with us";
   static const String partnersUrl = "https://verifik.co/en/partners/";

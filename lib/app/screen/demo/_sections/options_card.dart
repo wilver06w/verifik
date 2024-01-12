@@ -8,55 +8,55 @@ class OptionsCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: XigoResponsive.heightSizeByContext(
+      height: VerifikResponsive.heightSizeByContext(
         context,
         pixels: 260,
       ),
       margin: EdgeInsets.symmetric(
-        horizontal: XigoResponsive.withSizeByContext(
+        horizontal: VerifikResponsive.withSizeByContext(
           context,
-          pixels: XigoSpacing.xl,
+          pixels: VerifikSpacing.xl,
         ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const ItemCard(
-            imageUrl: InitProyectUiValues.idInCardPng,
-            title: InitProyectUiValues.scanYourIdDocument,
+            imageUrl: VerifikUiValues.idInCardPng,
+            title: VerifikUiValues.scanYourIdDocument,
             passNumber: '1',
           ),
           Gap(
-            XigoResponsive.withSizeByContext(
+            VerifikResponsive.withSizeByContext(
               context,
-              pixels: XigoSpacing.xs,
+              pixels: VerifikSpacing.xs,
             ),
           ),
           const ItemCard(
-            imageUrl: InitProyectUiValues.x2Step2,
-            title: InitProyectUiValues.obtainVerifyInformationExtracted,
+            imageUrl: VerifikUiValues.x2Step2,
+            title: VerifikUiValues.obtainVerifyInformationExtracted,
             passNumber: '2',
           ),
           Gap(
-            XigoResponsive.withSizeByContext(
+            VerifikResponsive.withSizeByContext(
               context,
-              pixels: XigoSpacing.xs,
+              pixels: VerifikSpacing.xs,
             ),
           ),
           const ItemCard(
-            imageUrl: InitProyectUiValues.x2Step3,
-            title: InitProyectUiValues.livenessDetection,
+            imageUrl: VerifikUiValues.x2Step3,
+            title: VerifikUiValues.livenessDetection,
             passNumber: '3',
           ),
           Gap(
-            XigoResponsive.withSizeByContext(
+            VerifikResponsive.withSizeByContext(
               context,
-              pixels: XigoSpacing.xs,
+              pixels: VerifikSpacing.xs,
             ),
           ),
           const ItemCard(
-            imageUrl: InitProyectUiValues.x2Step4,
-            title: InitProyectUiValues.getYourIdentityAuthenticatedWithinMinute,
+            imageUrl: VerifikUiValues.x2Step4,
+            title: VerifikUiValues.getYourIdentityAuthenticatedWithinMinute,
             passNumber: '4',
           ),
         ],

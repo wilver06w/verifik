@@ -12,30 +12,30 @@ class InfoRight extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.symmetric(
-        horizontal: XigoSpacing.md,
+        horizontal: VerifikSpacing.md,
       ),
       children: [
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.xxl,
+            pixels: VerifikSpacing.xxl,
           ),
         ),
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return SectionInfo(
-              title: InitProyectUiValues.generalInformation,
+              title: VerifikUiValues.generalInformation,
               items: [
                 ItemSection(
-                  title: InitProyectUiValues.device,
+                  title: VerifikUiValues.device,
                   subTitle: app.infoDevice?.platform ?? '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.lenguaje,
+                  title: VerifikUiValues.lenguaje,
                   subTitle: app.infoDevice?.language ?? '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.userAgent,
+                  title: VerifikUiValues.userAgent,
                   subTitle: app.infoDevice?.userAgent ?? '',
                 ),
               ],
@@ -45,22 +45,22 @@ class InfoRight extends StatelessWidget {
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return SectionInfo(
-              title: InitProyectUiValues.scanStudioDocumentExtraction,
+              title: VerifikUiValues.scanStudioDocumentExtraction,
               items: [
                 ItemSection(
-                  title: InitProyectUiValues.documenType,
+                  title: VerifikUiValues.documenType,
                   subTitle:
                       state.model.documentDetails?.data.studio.documentType ??
                           '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.documentNumber,
+                  title: VerifikUiValues.documentNumber,
                   subTitle: state.model.documentDetails?.data.studio
                           .ocrExtraction.documentNumber ??
                       '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.firstName,
+                  title: VerifikUiValues.firstName,
                   subTitle: state.model.documentDetails?.data.studio
                           .ocrExtraction.firstName ??
                       '',
@@ -70,7 +70,7 @@ class InfoRight extends StatelessWidget {
                         '')
                     .isNotEmpty) ...[
                   ItemSection(
-                    title: InitProyectUiValues.fullName,
+                    title: VerifikUiValues.fullName,
                     subTitle: state.model.documentDetails?.data.studio
                             .ocrExtraction.fullName ??
                         '',
@@ -83,22 +83,22 @@ class InfoRight extends StatelessWidget {
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return SectionInfo(
-              title: InitProyectUiValues.scanPromptDocumentExtraction,
+              title: VerifikUiValues.scanPromptDocumentExtraction,
               items: [
                 ItemSection(
-                  title: InitProyectUiValues.documenType,
+                  title: VerifikUiValues.documenType,
                   subTitle:
                       state.model.documentDetails?.data.prompt.documentType ??
                           '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.documentNumber,
+                  title: VerifikUiValues.documentNumber,
                   subTitle: state.model.documentDetails?.data.prompt
                           .ocrExtraction.documentNumber ??
                       '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.firstName,
+                  title: VerifikUiValues.firstName,
                   subTitle: state.model.documentDetails?.data.prompt
                           .ocrExtraction.firstName ??
                       '',
@@ -108,7 +108,7 @@ class InfoRight extends StatelessWidget {
                         '')
                     .isNotEmpty) ...[
                   ItemSection(
-                    title: InitProyectUiValues.fullName,
+                    title: VerifikUiValues.fullName,
                     subTitle: state.model.documentDetails?.data.prompt
                             .ocrExtraction.fullName ??
                         '',
@@ -121,15 +121,15 @@ class InfoRight extends StatelessWidget {
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return const SectionInfo(
-              title: InitProyectUiValues.userEstimatedLocation,
+              title: VerifikUiValues.userEstimatedLocation,
               items: [],
             );
           },
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.md,
+            pixels: VerifikSpacing.md,
           ),
         ),
         Row(
@@ -137,7 +137,7 @@ class InfoRight extends StatelessWidget {
           children: [
             Expanded(
               child: Button(
-                title: InitProyectUiValues.scanAgain,
+                title: VerifikUiValues.scanAgain,
                 onPressed: () {
                   context.read<BlocDemo>().add(
                         const ChangePassNumberEvent(
@@ -145,20 +145,20 @@ class InfoRight extends StatelessWidget {
                         ),
                       );
                 },
-                colorText: XigoColors.majorelleBlue,
-                borderColor: XigoColors.azureishWhite,
+                colorText: VerifikColors.majorelleBlue,
+                borderColor: VerifikColors.azureishWhite,
               ),
             ),
             Gap(
-              XigoResponsive.withSizeByContext(
+              VerifikResponsive.withSizeByContext(
                 context,
-                pixels: XigoSpacing.md,
+                pixels: VerifikSpacing.md,
               ),
             ),
             Expanded(
               child: Button(
-                title: InitProyectUiValues.continu,
-                backgroundColor: XigoColors.majorelleBlue,
+                title: VerifikUiValues.continu,
+                backgroundColor: VerifikColors.majorelleBlue,
                 onPressed: () {
                   context.read<BlocDemo>().add(
                         const ChangePassNumberEvent(
@@ -171,9 +171,9 @@ class InfoRight extends StatelessWidget {
           ],
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.md,
+            pixels: VerifikSpacing.md,
           ),
         ),
       ],

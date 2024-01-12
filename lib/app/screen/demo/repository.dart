@@ -5,17 +5,17 @@ import 'package:verifik/app/utils/http/http_client.dart';
 
 class Repository {
   Repository({
-    required this.xigoHttpClient,
+    required this.verifikHttpClient,
   });
 
-  final XigoHttpClient xigoHttpClient;
+  final VerifikHttpClient verifikHttpClient;
 
   final scanDemo = '/v2/ocr/scan-demo';
   final compareRecognition = '/v2/face-recognition/compare/demo';
   final livenessDemo = '/v2/face-recognition/liveness/demo';
 
   Future<DocumentDetails> getDetails(String image) async {
-    final response = await xigoHttpClient.msDio.post(
+    final response = await verifikHttpClient.msDio.post(
       scanDemo,
       data: {
         'image': image,
@@ -29,7 +29,7 @@ class Repository {
     required String probe,
     required String gallery,
   }) async {
-    final response = await xigoHttpClient.msDio.post(
+    final response = await verifikHttpClient.msDio.post(
       compareRecognition,
       data: {
         'probe': [probe],
@@ -44,7 +44,7 @@ class Repository {
   Future<Liveness> getLiveness({
     required String image,
   }) async {
-    final response = await xigoHttpClient.msDio.post(
+    final response = await verifikHttpClient.msDio.post(
       livenessDemo,
       data: {
         'os': 'DESKTOP',

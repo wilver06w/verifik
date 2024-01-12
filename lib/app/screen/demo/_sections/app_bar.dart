@@ -16,27 +16,27 @@ class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: XigoColors.primaryColor,
+      backgroundColor: VerifikColors.primaryColor,
       title: Image.network(
-        InitProyectUiValues.demoHeaderLogoCursorPointer,
+        VerifikUiValues.demoHeaderLogoCursorPointer,
         width: 120,
       ),
       actions: [
         ItemAction(
-          imageUrl: InitProyectUiValues.demoHeaderPartner,
-          title: InitProyectUiValues.partnerWithUs,
+          imageUrl: VerifikUiValues.demoHeaderPartner,
+          title: VerifikUiValues.partnerWithUs,
           onTap: () {
             Functions.launchInBrowser(
-              url: InitProyectUiValues.partnersUrl,
+              url: VerifikUiValues.partnersUrl,
             );
           },
         ),
         ItemAction(
-          imageUrl: InitProyectUiValues.demoHeaderSupportAgent,
-          title: InitProyectUiValues.talkSales,
+          imageUrl: VerifikUiValues.demoHeaderSupportAgent,
+          title: VerifikUiValues.talkSales,
           onTap: () {
             Functions.launchInBrowser(
-              url: InitProyectUiValues.mettingsUrl,
+              url: VerifikUiValues.mettingsUrl,
             );
           },
         ),
@@ -71,7 +71,7 @@ class ItemAction extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(
-          horizontal: XigoResponsive.withSizeByContext(
+          horizontal: VerifikResponsive.withSizeByContext(
             context,
             pixels: 3,
           ),
@@ -92,12 +92,12 @@ class ItemAction extends StatelessWidget {
               ),
             if (title.isNotEmpty) ...[
               Gap(
-                XigoResponsive.withSizeByContext(
+                VerifikResponsive.withSizeByContext(
                   context,
-                  pixels: XigoSpacing.xxs,
+                  pixels: VerifikSpacing.xxs,
                 ),
               ),
-              XigoText.body(
+              VerifikText.body(
                 label: title,
                 fontWeight: FontWeight.w800,
                 color: Colors.white,

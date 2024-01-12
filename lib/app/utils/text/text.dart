@@ -2,10 +2,22 @@ import 'package:verifik/app/utils/colors.dart';
 import 'package:verifik/app/utils/text/typography.dart';
 import 'package:flutter/material.dart';
 
-enum XigoTextType { h1, h2, h3, h4, h5, h6, body, title, label, small, xSmall }
+enum VerifikTextType {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  body,
+  title,
+  label,
+  small,
+  xSmall
+}
 
-class XigoText {
-  XigoText._();
+class VerifikText {
+  VerifikText._();
 
   ///h1 Text widget - fontSize 96
   static Widget h1({
@@ -23,8 +35,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.h1,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.h1,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -51,8 +63,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.h2,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.h2,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -79,8 +91,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.h3,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.h3,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -107,7 +119,7 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.h4,
+        fontSize: VerifikTypography.h4,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -134,8 +146,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.h5,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.h5,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -162,8 +174,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.h6,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.h6,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.bold,
         textAlign: textAlign,
@@ -190,8 +202,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.body,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.body,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -217,8 +229,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.title,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.title,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -244,8 +256,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.label,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.label,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -272,8 +284,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.xSmall,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.xSmall,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -300,8 +312,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.small,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.small,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -328,8 +340,8 @@ class XigoText {
       _TextGeneric(
         key: key,
         label: label,
-        fontSize: XigoTypography.body,
-        color: color ?? XigoColors.textColorSecondary,
+        fontSize: VerifikTypography.body,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: FontStyle.normal,
         fontWeight: fontWeight ?? FontWeight.w600,
         textAlign: textAlign,
@@ -359,7 +371,7 @@ class XigoText {
         key: key,
         label: label,
         fontSize: fontSize,
-        color: color ?? XigoColors.textColorSecondary,
+        color: color ?? VerifikColors.textColorSecondary,
         fontStyle: fontStyle,
         fontWeight: fontWeight ?? FontWeight.normal,
         textAlign: textAlign,
@@ -383,7 +395,7 @@ class XigoText {
   }) =>
       TextStyle(
         height: lineHeight,
-        fontFamily: XigoTypography.inter,
+        fontFamily: VerifikTypography.inter,
         color: color,
         fontSize: fontSize,
         fontWeight: fontWeight,
@@ -429,7 +441,7 @@ class _TextGeneric extends StatelessWidget {
       textAlign: textAlign,
       maxLines: maxLines,
       style: TextStyle(
-        fontFamily: XigoTypography.inter,
+        fontFamily: VerifikTypography.inter,
         color: color,
         fontSize: fontSize,
         fontWeight: fontWeight,

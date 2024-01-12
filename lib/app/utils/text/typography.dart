@@ -1,5 +1,5 @@
-class XigoTypography {
-  const XigoTypography._();
+class VerifikTypography {
+  const VerifikTypography._();
 
   static const String nunitoSans = 'NunitoSans';
 
@@ -70,7 +70,7 @@ class XigoTypography {
   static const double medium = 12;
 
   ///Small = 10
-  static const double xigoSmall = 10;
+  static const double verifikSmall = 10;
 
   ///captionSmall = 12
   static const double captionSmall = 12;

@@ -12,30 +12,30 @@ class InfoRight extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.symmetric(
-        horizontal: XigoSpacing.md,
+        horizontal: VerifikSpacing.md,
       ),
       children: [
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.xxl,
+            pixels: VerifikSpacing.xxl,
           ),
         ),
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return SectionInfo(
-              title: InitProyectUiValues.generalInformation,
+              title: VerifikUiValues.generalInformation,
               items: [
                 ItemSection(
-                  title: InitProyectUiValues.device,
+                  title: VerifikUiValues.device,
                   subTitle: app.infoDevice?.platform ?? '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.lenguaje,
+                  title: VerifikUiValues.lenguaje,
                   subTitle: app.infoDevice?.language ?? '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.userAgent,
+                  title: VerifikUiValues.userAgent,
                   subTitle: app.infoDevice?.userAgent ?? '',
                 ),
               ],
@@ -48,54 +48,54 @@ class InfoRight extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ItemPercent(
-                  title: InitProyectUiValues.livenessScore,
+                  title: VerifikUiValues.livenessScore,
                   percent:
                       state.model.liveness?.data.result.livenessScore ?? 0.0,
-                  colorsProgress: XigoColors.rybBlue,
+                  colorsProgress: VerifikColors.rybBlue,
                 ),
                 Gap(
-                  XigoResponsive.withSizeByContext(
+                  VerifikResponsive.withSizeByContext(
                     context,
-                    pixels: XigoSpacing.xs,
+                    pixels: VerifikSpacing.xs,
                   ),
                 ),
                 ItemPercent(
-                  title: InitProyectUiValues.matchScore,
+                  title: VerifikUiValues.matchScore,
                   percent: state.model.compare?.data.result.score ?? 0.0,
-                  colorsProgress: XigoColors.maximumRed,
+                  colorsProgress: VerifikColors.maximumRed,
                 ),
               ],
             );
           },
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.xl,
+            pixels: VerifikSpacing.xl,
           ),
         ),
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return SectionInfo(
-              title: InitProyectUiValues.livenessMatchResults,
+              title: VerifikUiValues.livenessMatchResults,
               items: [
                 ItemSection(
-                  title: InitProyectUiValues.livenessScore,
+                  title: VerifikUiValues.livenessScore,
                   subTitle:
                       '${Functions.convertirAInt(value: state.model.liveness?.data.result.livenessScore ?? 0.0)}',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.livenessPassed,
+                  title: VerifikUiValues.livenessPassed,
                   subTitle:
                       '${(state.model.liveness?.data.result.passed ?? false)}',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.minimumLivenessScore,
+                  title: VerifikUiValues.minimumLivenessScore,
                   subTitle:
                       '${Functions.convertirAInt(value: state.model.liveness?.data.livenessMinScore ?? 0.0)}',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.matchScore,
+                  title: VerifikUiValues.matchScore,
                   subTitle:
                       '${Functions.convertirAInt(value: state.model.compare?.data.result.score ?? 0.0)}',
                 ),
@@ -106,22 +106,22 @@ class InfoRight extends StatelessWidget {
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return SectionInfo(
-              title: InitProyectUiValues.scanStudioDocumentExtraction,
+              title: VerifikUiValues.scanStudioDocumentExtraction,
               items: [
                 ItemSection(
-                  title: InitProyectUiValues.documenType,
+                  title: VerifikUiValues.documenType,
                   subTitle:
                       state.model.documentDetails?.data.studio.documentType ??
                           '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.documentNumber,
+                  title: VerifikUiValues.documentNumber,
                   subTitle: state.model.documentDetails?.data.studio
                           .ocrExtraction.documentNumber ??
                       '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.firstName,
+                  title: VerifikUiValues.firstName,
                   subTitle: state.model.documentDetails?.data.studio
                           .ocrExtraction.firstName ??
                       '',
@@ -131,7 +131,7 @@ class InfoRight extends StatelessWidget {
                         '')
                     .isNotEmpty) ...[
                   ItemSection(
-                    title: InitProyectUiValues.fullName,
+                    title: VerifikUiValues.fullName,
                     subTitle: state.model.documentDetails?.data.studio
                             .ocrExtraction.fullName ??
                         '',
@@ -144,22 +144,22 @@ class InfoRight extends StatelessWidget {
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return SectionInfo(
-              title: InitProyectUiValues.scanPromptDocumentExtraction,
+              title: VerifikUiValues.scanPromptDocumentExtraction,
               items: [
                 ItemSection(
-                  title: InitProyectUiValues.documenType,
+                  title: VerifikUiValues.documenType,
                   subTitle:
                       state.model.documentDetails?.data.prompt.documentType ??
                           '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.documentNumber,
+                  title: VerifikUiValues.documentNumber,
                   subTitle: state.model.documentDetails?.data.prompt
                           .ocrExtraction.documentNumber ??
                       '',
                 ),
                 ItemSection(
-                  title: InitProyectUiValues.firstName,
+                  title: VerifikUiValues.firstName,
                   subTitle: state.model.documentDetails?.data.prompt
                           .ocrExtraction.firstName ??
                       '',
@@ -169,7 +169,7 @@ class InfoRight extends StatelessWidget {
                         '')
                     .isNotEmpty) ...[
                   ItemSection(
-                    title: InitProyectUiValues.fullName,
+                    title: VerifikUiValues.fullName,
                     subTitle: state.model.documentDetails?.data.prompt
                             .ocrExtraction.fullName ??
                         '',
@@ -182,22 +182,22 @@ class InfoRight extends StatelessWidget {
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return const SectionInfo(
-              title: InitProyectUiValues.userEstimatedLocation,
+              title: VerifikUiValues.userEstimatedLocation,
               items: [],
             );
           },
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.md,
+            pixels: VerifikSpacing.md,
           ),
         ),
         Column(
           children: [
             Button(
-              title: InitProyectUiValues.restartDemo,
-              backgroundColor: XigoColors.majorelleBlue,
+              title: VerifikUiValues.restartDemo,
+              backgroundColor: VerifikColors.majorelleBlue,
               onPressed: () {
                 context.read<BlocDemo>().add(
                       const ChangePassNumberEvent(
@@ -209,9 +209,9 @@ class InfoRight extends StatelessWidget {
           ],
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.md,
+            pixels: VerifikSpacing.md,
           ),
         ),
       ],

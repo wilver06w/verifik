@@ -2,16 +2,16 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-/// XigoSharedDio
+/// VerifikSharedDio
 ///
-/// Xigo shared dio
+/// Verifik shared dio
 ///
-/// This class will help us to manage every dio http request to our Xigo
+/// This class will help us to manage every dio http request to our Verifik
 /// api exposed
 ///
 /// By defualt
-class XigoSharedDio {
-  XigoSharedDio({
+class VerifikSharedDio {
+  VerifikSharedDio({
     /// only for test, this value for test should be a mock
     Dio? dioInstance,
     required String baseUrl,

@@ -15,8 +15,8 @@ import 'package:verifik/app/utils/responsive.dart';
 import 'package:verifik/app/utils/spacing.dart';
 import 'package:verifik/app/utils/text/text.dart';
 import 'package:verifik/app/utils/verifik_loading.dart';
-import 'package:verifik/app/widget/xigo_loading_circle.dart';
-import 'package:verifik/app/utils/xigo_ui.dart';
+import 'package:verifik/app/widget/verifik_loading_circle.dart';
+import 'package:verifik/app/utils/verifik_ui.dart';
 import 'package:verifik/app/widget/body_general_two.dart';
 import 'package:verifik/app/widget/button.dart';
 
@@ -30,9 +30,9 @@ class ScanningPage extends StatelessWidget {
     return BodyGeneralTwo(
       bgColorRight: Colors.white,
       widgetLeft: ItemID(
-        title: InitProyectUiValues.uploadedIdDocument,
-        imageUrl: InitProyectUiValues.uploadImageTemp,
-        titleButton: InitProyectUiValues.uploadFile,
+        title: VerifikUiValues.uploadedIdDocument,
+        imageUrl: VerifikUiValues.uploadImageTemp,
+        titleButton: VerifikUiValues.uploadFile,
         onPressed: () async {
           var value = await showDialog(
             context: context,
@@ -45,7 +45,7 @@ class ScanningPage extends StatelessWidget {
                   BlocProvider(
                     create: (context) => BlocDemo(
                       repository: Repository(
-                        xigoHttpClient: Modular.get<XigoHttpClient>(),
+                        verifikHttpClient: Modular.get<VerifikHttpClient>(),
                       ),
                     ),
                   ),
@@ -78,9 +78,9 @@ class ScanningPage extends StatelessWidget {
       ),
       widgetRight: ItemID(
         isBackgroundWhite: true,
-        title: InitProyectUiValues.scanIdDocument,
-        imageUrl: InitProyectUiValues.scanIdDocumentImage,
-        titleButton: InitProyectUiValues.startScanning,
+        title: VerifikUiValues.scanIdDocument,
+        imageUrl: VerifikUiValues.scanIdDocumentImage,
+        titleButton: VerifikUiValues.startScanning,
         onPressed: () {
           context.read<BlocDemo>().add(
                 const ChangePassNumberEvent(
@@ -109,7 +109,7 @@ Future<void> _listener(BuildContext context, DemoState state) async {
     Navigator.pop(context);
     showToast(
       state.message,
-      backgroundColor: XigoColors.rybBlue,
+      backgroundColor: VerifikColors.rybBlue,
       textStyle: const TextStyle(
         color: Colors.white,
       ),
@@ -140,17 +140,17 @@ class CustomDialog extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(XigoSpacing.md),
+          padding: const EdgeInsets.all(VerifikSpacing.md),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                padding: const EdgeInsets.all(XigoSpacing.xs),
+                padding: const EdgeInsets.all(VerifikSpacing.xs),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: XigoColors.rybBlue,
+                    color: VerifikColors.rybBlue,
                     width: 1,
                     style: BorderStyle.solid,
                   ),
@@ -172,7 +172,7 @@ class CustomDialog extends StatelessWidget {
                                         image:
                                             FileImage(state.model.imageFile!),
                                         placeholderBuilder: (_) =>
-                                            const XigoLoadingCircle(),
+                                            const VerifikLoadingCircle(),
                                       ))
                                 : const SizedBox(
                                     height: 100,
@@ -184,7 +184,7 @@ class CustomDialog extends StatelessWidget {
                           },
                         ),
                         Gap(
-                          XigoResponsive.withSizeByContext(
+                          VerifikResponsive.withSizeByContext(
                             context,
                             pixels: 10,
                           ),
@@ -192,12 +192,12 @@ class CustomDialog extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            XigoText.labelText(
-                              label: InitProyectUiValues.dragDropPhotoHere,
+                            VerifikText.labelText(
+                              label: VerifikUiValues.dragDropPhotoHere,
                               fontWeight: FontWeight.bold,
                             ),
-                            XigoText.small(
-                              label: InitProyectUiValues.idDocumentFile,
+                            VerifikText.small(
+                              label: VerifikUiValues.idDocumentFile,
                               fontWeight: FontWeight.w400,
                             ),
                           ],
@@ -212,42 +212,42 @@ class CustomDialog extends StatelessWidget {
                       },
                       child: Container(
                         padding: const EdgeInsets.all(
-                          XigoSpacing.xs,
+                          VerifikSpacing.xs,
                         ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: XigoColors.rybBlue,
+                          color: VerifikColors.rybBlue,
                           border: Border.all(
                             color: Colors.grey,
                             width: 0.2,
                           ),
                         ),
-                        child: XigoText.body(
-                          label: InitProyectUiValues.findFileDevice,
+                        child: VerifikText.body(
+                          label: VerifikUiValues.findFileDevice,
                           color: Colors.white,
                         ),
                       ),
                     ),
                     Gap(
-                      XigoResponsive.heightSizeByContext(
+                      VerifikResponsive.heightSizeByContext(
                         context,
-                        pixels: XigoSpacing.sm,
+                        pixels: VerifikSpacing.sm,
                       ),
                     ),
                   ],
                 ),
               ),
               Gap(
-                XigoResponsive.heightSizeByContext(
+                VerifikResponsive.heightSizeByContext(
                   context,
-                  pixels: XigoSpacing.sm,
+                  pixels: VerifikSpacing.sm,
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Button(
-                    title: InitProyectUiValues.cancel,
+                    title: VerifikUiValues.cancel,
                     onPressed: () {
                       Navigator.pop(context, false);
                     },
@@ -256,16 +256,16 @@ class CustomDialog extends StatelessWidget {
                     borderColor: Colors.grey,
                   ),
                   Gap(
-                    XigoResponsive.withSizeByContext(
+                    VerifikResponsive.withSizeByContext(
                       context,
-                      pixels: XigoSpacing.sm,
+                      pixels: VerifikSpacing.sm,
                     ),
                   ),
                   BlocBuilder<BlocCamera, BlocCameraState>(
                     builder: (context, state) {
                       return Button(
-                        title: InitProyectUiValues.continu,
-                        backgroundColor: XigoColors.majorelleBlue,
+                        title: VerifikUiValues.continu,
+                        backgroundColor: VerifikColors.majorelleBlue,
                         onPressed: (state.model.imagePath ?? '').isEmpty
                             ? null
                             : () {

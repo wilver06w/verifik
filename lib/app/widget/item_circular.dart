@@ -16,7 +16,7 @@ class ItemCircular extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: XigoResponsive.heightSizeByContext(
+      height: VerifikResponsive.heightSizeByContext(
         context,
         pixels: 45,
       ),
@@ -24,11 +24,11 @@ class ItemCircular extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: isActive
-            ? XigoColors.rybBlue
-            : XigoColors.rybBlue.withOpacity(0.10),
+            ? VerifikColors.rybBlue
+            : VerifikColors.rybBlue.withOpacity(0.10),
       ),
       child: Center(
-        child: XigoText.body(
+        child: VerifikText.body(
           label: passNumber,
           color: Colors.white,
         ),

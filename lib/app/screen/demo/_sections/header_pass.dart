@@ -8,7 +8,7 @@ class HeaderPassNumbers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: XigoResponsive.heightSizeByContext(
+      height: VerifikResponsive.heightSizeByContext(
         context,
         pixels: 40,
       ),
@@ -32,7 +32,7 @@ class HeaderPassNumbers extends StatelessWidget {
         },
         builder: (context, state) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: XigoSpacing.md),
+            padding: const EdgeInsets.symmetric(horizontal: VerifikSpacing.md),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.max,
@@ -40,22 +40,22 @@ class HeaderPassNumbers extends StatelessWidget {
                 ItemPass(
                   passNumber: 1,
                   passSelected: state,
-                  title: InitProyectUiValues.idScanning,
+                  title: VerifikUiValues.idScanning,
                 ),
                 ItemPass(
                   passNumber: 2,
                   passSelected: state,
-                  title: InitProyectUiValues.documentDetails,
+                  title: VerifikUiValues.documentDetails,
                 ),
                 ItemPass(
                   passNumber: 3,
                   passSelected: state,
-                  title: InitProyectUiValues.livenessCheck,
+                  title: VerifikUiValues.livenessCheck,
                 ),
                 ItemPass(
                   passNumber: 4,
                   passSelected: state,
-                  title: InitProyectUiValues.results,
+                  title: VerifikUiValues.results,
                 ),
               ],
             ),

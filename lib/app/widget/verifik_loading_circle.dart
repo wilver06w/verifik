@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:verifik/app/utils/colors.dart';
 
-class XigoLoadingCircle extends StatefulWidget {
+class VerifikLoadingCircle extends StatefulWidget {
   final Color? color;
   final double? height;
   final double? width;
-  const XigoLoadingCircle({
+  const VerifikLoadingCircle({
     Key? key,
     this.color,
     this.height,
@@ -16,10 +16,10 @@ class XigoLoadingCircle extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  createState() => _XigoLoadingCircleState();
+  createState() => _VerifikLoadingCircleState();
 }
 
-class _XigoLoadingCircleState extends State<XigoLoadingCircle>
+class _VerifikLoadingCircleState extends State<VerifikLoadingCircle>
     with SingleTickerProviderStateMixin {
   AnimationController? controller;
 
@@ -55,7 +55,7 @@ class _XigoLoadingCircleState extends State<XigoLoadingCircle>
           width: widget.width ?? 50,
           child: SvgPicture.asset('assets/animations/loading/loading.svg',
               colorFilter: const ColorFilter.mode(
-                XigoColors.catalinaBlue,
+                VerifikColors.catalinaBlue,
                 BlendMode.srcIn,
               )),
         ),

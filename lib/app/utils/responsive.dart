@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class XigoResponsive {
-  const XigoResponsive._();
+class VerifikResponsive {
+  const VerifikResponsive._();
   static double _width = 0;
   static double _height = 0;
   static double _resizeHeight = 0;

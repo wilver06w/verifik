@@ -22,47 +22,47 @@ class ItemInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Divider(
-          color: XigoColors.azureishWhite,
+          color: VerifikColors.azureishWhite,
           height: 10,
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.xs,
+            pixels: VerifikSpacing.xs,
           ),
         ),
-        XigoText.body(
+        VerifikText.body(
           label: title,
           color: Colors.black,
           textAlign: TextAlign.center,
           fontWeight: FontWeight.w800,
         ),
         Gap(
-          XigoResponsive.heightSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: XigoSpacing.xs,
+            pixels: VerifikSpacing.xs,
           ),
         ),
-        XigoText.labelText(
+        VerifikText.labelText(
           label: subTitle,
           color: Colors.black,
           fontWeight: FontWeight.w400,
         ),
         if (isLast) ...[
           Gap(
-            XigoResponsive.heightSizeByContext(
+            VerifikResponsive.heightSizeByContext(
               context,
-              pixels: XigoSpacing.xs,
+              pixels: VerifikSpacing.xs,
             ),
           ),
           const Divider(
-            color: XigoColors.azureishWhite,
+            color: VerifikColors.azureishWhite,
             height: 10,
           ),
           Gap(
-            XigoResponsive.heightSizeByContext(
+            VerifikResponsive.heightSizeByContext(
               context,
-              pixels: XigoSpacing.md,
+              pixels: VerifikSpacing.md,
             ),
           ),
         ]

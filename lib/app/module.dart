@@ -11,8 +11,8 @@ class AppModule extends Module {
   List<Bind> get binds {
     return [
       Bind((i) => Preferences()),
-      Bind<XigoHttpClient>(
-        (i) => XigoHttpClient().getInstance(),
+      Bind<VerifikHttpClient>(
+        (i) => VerifikHttpClient().getInstance(),
       ),
       Bind.lazySingleton(
         (i) => BlocCamera(),

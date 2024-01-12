@@ -5,8 +5,8 @@
 //  ███████║██║·····██║··██║╚██████╗██║██║·╚████║╚██████╔╝
 //  ╚══════╝╚═╝·····╚═╝··╚═╝·╚═════╝╚═╝╚═╝··╚═══╝·╚═════╝·
 
-class XigoSpacing {
-  XigoSpacing._();
+class VerifikSpacing {
+  VerifikSpacing._();
 
   ///zero = 0
   static const double zero = 0;
