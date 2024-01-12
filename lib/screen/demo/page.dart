@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,6 +6,7 @@ import 'package:verifik/screen/camera/page.dart';
 import 'package:verifik/screen/demo/bloc/bloc.dart';
 import 'package:verifik/screen/demo/repository.dart';
 import 'package:verifik/screen/document/page.dart';
+import 'package:verifik/screen/home/page.dart';
 import 'package:verifik/screen/scanning/page.dart';
 import 'package:verifik/utils/camera/bloc/bloc.dart';
 import 'package:verifik/utils/colors.dart';
@@ -22,10 +21,8 @@ import 'package:verifik/widget/button.dart';
 import 'package:verifik/widget/item_circular.dart';
 
 part 'package:verifik/screen/demo/_sections/app_bar.dart';
-part 'package:verifik/screen/demo/_sections/body_home.dart';
 part 'package:verifik/screen/demo/_sections/body_pass.dart';
 part 'package:verifik/screen/demo/_sections/bottom.dart';
-part 'package:verifik/screen/demo/_sections/header.dart';
 part 'package:verifik/screen/demo/_sections/header_pass.dart';
 part 'package:verifik/screen/demo/_sections/item_card.dart';
 part 'package:verifik/screen/demo/_sections/options_card.dart';
@@ -67,73 +64,6 @@ class Page extends StatelessWidget {
             //   return const BodyPass();
           },
         ),
-      ),
-    );
-  }
-}
-
-//TODO: Remover
-class ItemUrl extends StatefulWidget {
-  const ItemUrl({
-    super.key,
-    required this.onTap,
-  });
-
-  final VoidCallback onTap;
-
-  @override
-  State<ItemUrl> createState() => _ItemUrlState();
-}
-
-class _ItemUrlState extends State<ItemUrl> {
-  bool isOn = false;
-  StreamController<bool> streamController = StreamController<bool>();
-
-  @override
-  void initState() {
-    streamController.add(isOn);
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: widget.onTap,
-      onHover: (value) {
-        streamController.add(value);
-      },
-      child: StreamBuilder<bool>(
-        stream: streamController.stream,
-        builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(
-                10.0,
-              ),
-              color: (snapshot.data ?? false)
-                  ? XigoColors.containerSelected
-                  : Colors.white,
-              border: Border.all(
-                color: (snapshot.data ?? false)
-                    ? Colors.white
-                    : XigoColors.containerBorder,
-              ),
-            ),
-            padding: const EdgeInsets.all(
-              InitProyectUiValues.spacingEight,
-            ),
-            child: SvgPicture.asset(
-              InitProyectUiValues.svgIconGitHub,
-              height: 20,
-              width: 20,
-              colorFilter: const ColorFilter.mode(
-                Colors.blue,
-                BlendMode.srcIn,
-              ),
-              // color: Colors.blue,
-            ),
-          );
-        },
       ),
     );
   }

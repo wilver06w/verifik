@@ -1,4 +1,18 @@
-part of 'package:verifik/screen/demo/page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
+import 'package:verifik/screen/demo/bloc/bloc.dart';
+import 'package:verifik/utils/colors.dart';
+import 'package:verifik/utils/responsive.dart';
+import 'package:verifik/utils/spacing.dart';
+import 'package:verifik/utils/text/text.dart';
+import 'package:verifik/utils/xigo_ui.dart';
+import 'package:verifik/widget/button.dart';
+import 'package:verifik/widget/item_circular.dart';
+
+part 'package:verifik/screen/home/_sections/item_card.dart';
+part 'package:verifik/screen/home/_sections/options_card.dart';
 
 class BodyHome extends StatelessWidget {
   const BodyHome({
