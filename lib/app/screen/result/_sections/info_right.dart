@@ -49,7 +49,8 @@ class InfoRight extends StatelessWidget {
               children: [
                 ItemPercent(
                   title: InitProyectUiValues.livenessScore,
-                  percent: state.model.compare?.data.result.score ?? 0.0,
+                  percent:
+                      state.model.liveness?.data.result.livenessScore ?? 0.0,
                   colorsProgress: XigoColors.rybBlue,
                 ),
                 Gap(
@@ -60,8 +61,7 @@ class InfoRight extends StatelessWidget {
                 ),
                 ItemPercent(
                   title: InitProyectUiValues.matchScore,
-                  percent:
-                      state.model.liveness?.data.result.livenessScore ?? 0.0,
+                  percent: state.model.compare?.data.result.score ?? 0.0,
                   colorsProgress: XigoColors.maximumRed,
                 ),
               ],

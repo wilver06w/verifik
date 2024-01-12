@@ -28,6 +28,7 @@ class ScanningPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BodyGeneralTwo(
+      bgColorRight: Colors.white,
       widgetLeft: ItemID(
         title: InitProyectUiValues.uploadedIdDocument,
         imageUrl: InitProyectUiValues.uploadImageTemp,

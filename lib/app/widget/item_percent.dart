@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -41,13 +40,11 @@ class ItemPercent extends StatelessWidget {
         CircularPercentIndicator(
           radius: 90.0,
           lineWidth: 20.0,
-          percent: Functions.convertirAInt(
-            value: percent,
-          ).toDouble(),
+          percent: percent,
           center: XigoText.fontSizeCustom(
             label: '${Functions.convertirAInt(
               value: percent,
-            )}',
+            )}%',
             color: colorText,
             fontSize: 35,
           ),
