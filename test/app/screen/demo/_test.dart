@@ -89,38 +89,7 @@ void main() {
       3,
     ],
   );
-  /*
 
-  const List<address.Address> addresses = [
-    address.Address(+
-
-
-      uuid: '121212',
-      current: true,
-      marketingZoneUuid: '1234123124',
-    ),
-    address.Address(uuid: '121213', current: false)
-  ];
-
-  const List<address.Address> addressesNotCurrent = [
-    address.Address(
-      uuid: '121212',
-      current: false,
-      status: 'enabled',
-      warehouseUuid: '123',
-      zoneUuid: '123',
-    ),
-    address.Address(
-      uuid: '121213',
-      current: false,
-      status: 'coverage',
-      warehouseUuid: '123',
-      zoneUuid: '123',
-    )
-  ];
-
-  const selectedUuid = '121212';
-*/
   final mockRepository = MockRepository();
 
   const model = Model(
