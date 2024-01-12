@@ -13,7 +13,8 @@ import 'package:verifik/app/utils/camera/bloc/bloc.dart';
 import 'package:verifik/app/utils/colors.dart';
 import 'package:verifik/app/utils/config/client_config.dart';
 import 'package:verifik/app/utils/functions.dart';
-import 'package:verifik/app/utils/http/http_client.dart' hide ModularWatchExtension;
+import 'package:verifik/app/utils/http/http_client.dart'
+    hide ModularWatchExtension;
 import 'package:verifik/app/utils/responsive.dart';
 import 'package:verifik/app/utils/spacing.dart';
 import 'package:verifik/app/utils/text/text.dart';
@@ -57,9 +58,7 @@ class Page extends StatelessWidget {
             return state.model.numberPass;
           },
           builder: (context, state) {
-            //TODO: Descomentar
             return state == 0 ? const BodyHome() : const BodyPass();
-            //   return const BodyPass();
           },
         ),
       ),

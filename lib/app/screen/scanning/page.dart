@@ -15,7 +15,7 @@ import 'package:verifik/app/utils/responsive.dart';
 import 'package:verifik/app/utils/spacing.dart';
 import 'package:verifik/app/utils/text/text.dart';
 import 'package:verifik/app/utils/verifik_loading.dart';
-import 'package:verifik/app/utils/xigo_loading_circle.dart';
+import 'package:verifik/app/widget/xigo_loading_circle.dart';
 import 'package:verifik/app/utils/xigo_ui.dart';
 import 'package:verifik/app/widget/body_general_two.dart';
 import 'package:verifik/app/widget/button.dart';

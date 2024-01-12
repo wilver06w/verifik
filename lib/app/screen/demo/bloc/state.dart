@@ -77,8 +77,7 @@ class ErrorDetailState extends DemoState {
 
 class Model extends Equatable {
   const Model({
-//TODO: pasas a 0
-    this.numberPass = 4,
+    this.numberPass = 0,
     this.documentDetails,
     this.liveness,
     this.compare,

@@ -17,9 +17,9 @@ class BlocDemo extends Bloc<DemoEvent, DemoState> {
   BlocDemo({
     required this.repository,
   }) : super(const InitialState(Model())) {
+    on<ChangePassNumberEvent>(_onChangePassNumberEvent);
     on<ChangeInfoDetailEvent>(_onChangeInfoDetailEvent);
     on<ChangeSelfieImagenEvent>(_onChangeSelfieImagenEvent);
-    on<ChangePassNumberEvent>(_onChangePassNumberEvent);
     on<GetDetailsEvent>(_onGetDetailsEvent);
     on<GetCompareRecognitionEvent>(_onGetCompareRecognitionEvent);
     on<GetLivenessDataEvent>(_onGetLivenessDataEvent);

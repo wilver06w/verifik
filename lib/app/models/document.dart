@@ -88,7 +88,6 @@ class Prompt {
   PromptOcrExtraction ocrExtraction;
   DateTime updatedAt;
   DateTime createdAt;
-  int v;
 
   Prompt({
     this.documentType = '',
@@ -103,7 +102,6 @@ class Prompt {
     required this.ocrExtraction,
     required this.updatedAt,
     required this.createdAt,
-    required this.v,
   });
 
   factory Prompt.fromJson(Map<String, dynamic> json) => Prompt(
@@ -119,7 +117,6 @@ class Prompt {
         ocrExtraction: PromptOcrExtraction.fromJson(json["OCRExtraction"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         createdAt: DateTime.parse(json["createdAt"]),
-        v: json["__v"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -135,7 +132,6 @@ class Prompt {
         "OCRExtraction": ocrExtraction.toJson(),
         "updatedAt": updatedAt.toIso8601String(),
         "createdAt": createdAt.toIso8601String(),
-        "__v": v,
       };
 }
 
@@ -181,7 +177,6 @@ class Studio {
   StudioOcrExtraction ocrExtraction;
   DateTime updatedAt;
   DateTime createdAt;
-  int v;
 
   Studio({
     required this.documentType,
@@ -196,7 +191,6 @@ class Studio {
     required this.ocrExtraction,
     required this.updatedAt,
     required this.createdAt,
-    required this.v,
   });
 
   factory Studio.fromJson(Map<String, dynamic> json) => Studio(
@@ -212,7 +206,6 @@ class Studio {
         ocrExtraction: StudioOcrExtraction.fromJson(json["OCRExtraction"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         createdAt: DateTime.parse(json["createdAt"]),
-        v: json["__v"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -228,7 +221,6 @@ class Studio {
         "OCRExtraction": ocrExtraction.toJson(),
         "updatedAt": updatedAt.toIso8601String(),
         "createdAt": createdAt.toIso8601String(),
-        "__v": v,
       };
 }
 

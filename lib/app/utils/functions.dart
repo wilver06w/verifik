@@ -1,7 +1,4 @@
-import 'package:flutter/services.dart';
-import 'package:platform_device_id/platform_device_id.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:verifik/app/utils/xigo_ui.dart';
 
 class Functions {
   static Future<void> launchInBrowser({required String url}) async {

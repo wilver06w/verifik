@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-
-import 'package:verifik/app/utils/functions.dart';
 import 'package:verifik/app/utils/preferences.dart';
 
 class App {
