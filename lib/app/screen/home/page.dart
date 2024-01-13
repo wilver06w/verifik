@@ -21,16 +21,20 @@ class BodyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Stack(
       children: [
-        Positioned(
-          bottom: 0,
-          left: 0,
-          child: Image.network(
-            VerifikUiValues.businessWomanImage,
-            height: VerifikResponsive.heightSizeByContext(context, pixels: 470),
-          ),
-        ),
+        size.width > 600
+            ? Positioned(
+                bottom: 0,
+                left: 0,
+                child: Image.network(
+                  VerifikUiValues.businessWomanImage,
+                  height: VerifikResponsive.heightSizeByContext(context,
+                      pixels: 470),
+                ),
+              )
+            : const SizedBox.shrink(),
         ListView(
           padding: const EdgeInsets.symmetric(
             vertical: VerifikSpacing.xl,

@@ -16,10 +16,10 @@ class VerifikLoadingCircle extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  createState() => _VerifikLoadingCircleState();
+  VerifikLoadingCircleState createState() => VerifikLoadingCircleState();
 }
 
-class _VerifikLoadingCircleState extends State<VerifikLoadingCircle>
+class VerifikLoadingCircleState extends State<VerifikLoadingCircle>
     with SingleTickerProviderStateMixin {
   AnimationController? controller;
 

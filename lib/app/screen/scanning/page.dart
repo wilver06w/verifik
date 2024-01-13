@@ -82,11 +82,13 @@ class ScanningPage extends StatelessWidget {
         imageUrl: VerifikUiValues.scanIdDocumentImage,
         titleButton: VerifikUiValues.startScanning,
         onPressed: () {
-          context.read<BlocDemo>().add(
-                const ChangePassNumberEvent(
-                  passNumber: 2,
-                ),
-              );
+          showToast(
+            VerifikUiValues.noPartFlow,
+            backgroundColor: VerifikColors.rybBlue,
+            textStyle: const TextStyle(
+              color: Colors.white,
+            ),
+          );
         },
       ),
     );

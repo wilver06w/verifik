@@ -32,9 +32,9 @@ class ItemPercent extends StatelessWidget {
           fontWeight: FontWeight.w700,
         ),
         Gap(
-          VerifikResponsive.withSizeByContext(
+          VerifikResponsive.heightSizeByContext(
             context,
-            pixels: VerifikSpacing.md,
+            pixels: VerifikSpacing.sm,
           ),
         ),
         CircularPercentIndicator(

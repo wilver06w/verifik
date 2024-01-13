@@ -76,6 +76,7 @@ class VerifikUiValues  {
   static const String demoHeaderSupportAgent =
       'https://cdn.verifik.co/demo/support_agent@3x.png';
 
+  static const String noPartFlow = "It is not part of the flow";
   static const String startDemo = "Start demo";
   static const String idScanning = "ID Scanning";
   static const String documentDetails = "Document details";

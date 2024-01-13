@@ -14,16 +14,17 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Stack(
       children: [
         Container(
           height: VerifikResponsive.heightSizeByContext(
             context,
-            pixels: 250,
+            pixels: size.width > 600 ? 250 : 200,
           ),
           width: VerifikResponsive.withSizeByContext(
             context,
-            pixels: 45,
+            pixels: size.width > 600 ? 45 : 150,
           ),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -48,14 +49,18 @@ class ItemCard extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Gap(
-                VerifikResponsive.withSizeByContext(
-                  context,
-                  pixels: VerifikSpacing.xs,
-                ),
-              ),
+              size.width > 600
+                  ? Gap(
+                      VerifikResponsive.heightSizeByContext(
+                        context,
+                        pixels: VerifikSpacing.xs,
+                      ),
+                    )
+                  : const SizedBox.shrink(),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(
+                  size.width < 874 ? VerifikSpacing.zero : VerifikSpacing.sm,
+                ),
                 child: Image.network(
                   imageUrl,
                   width: VerifikResponsive.withSizeByContext(
@@ -64,16 +69,16 @@ class ItemCard extends StatelessWidget {
                   ),
                   height: VerifikResponsive.heightSizeByContext(
                     context,
-                    pixels: 124,
+                    pixels: size.width < 874 ? 80 : 124,
                   ),
                 ),
               ),
-              Gap(
-                VerifikResponsive.heightSizeByContext(
-                  context,
-                  pixels: VerifikSpacing.md,
-                ),
-              ),
+              size.width > 600
+                  ? Gap(
+                      VerifikResponsive.heightSizeByContext(context,
+                          pixels: VerifikSpacing.md),
+                    )
+                  : const SizedBox.shrink(),
               VerifikText.body(
                 label: title,
                 fontWeight: FontWeight.w600,

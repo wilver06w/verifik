@@ -45,7 +45,7 @@ class InfoRight extends StatelessWidget {
         BlocBuilder<BlocDemo, DemoState>(
           builder: (context, state) {
             return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ItemPercent(
                   title: VerifikUiValues.livenessScore,
