@@ -179,30 +179,30 @@ class Studio {
   DateTime createdAt;
 
   Studio({
-    required this.documentType,
-    required this.status,
-    required this.imageValidated,
-    required this.validationMethod,
-    required this.type,
-    required this.id,
-    required this.deleted,
-    required this.documentNumber,
-    required this.url,
+    this.documentType = '',
+    this.status = '',
+    this.imageValidated = false,
+    this.validationMethod = '',
+    this.type = '',
+    this.id = '',
+    this.deleted = false,
+    this.documentNumber = '',
+    this.url = '',
     required this.ocrExtraction,
     required this.updatedAt,
     required this.createdAt,
   });
 
   factory Studio.fromJson(Map<String, dynamic> json) => Studio(
-        documentType: json["documentType"],
-        status: json["status"],
-        imageValidated: json["imageValidated"],
-        validationMethod: json["validationMethod"],
-        type: json["type"],
-        id: json["_id"],
-        deleted: json["deleted"],
-        documentNumber: json["documentNumber"],
-        url: json["url"],
+        documentType: json["documentType"] ?? '',
+        status: json["status"] ?? false,
+        imageValidated: json["imageValidated"] ?? false,
+        validationMethod: json["validationMethod"] = '',
+        type: json["type"] ?? '',
+        id: json["_id"] ?? '',
+        deleted: json["deleted"] ?? false,
+        documentNumber: json["documentNumber"] ?? '',
+        url: json["url"] ?? '',
         ocrExtraction: StudioOcrExtraction.fromJson(json["OCRExtraction"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         createdAt: DateTime.parse(json["createdAt"]),
@@ -232,16 +232,16 @@ class StudioOcrExtraction {
 
   StudioOcrExtraction({
     required this.details,
-    required this.firstName,
-    required this.documentNumber,
+    this.firstName = '',
+    this.documentNumber = '',
     this.fullName = '',
   });
 
   factory StudioOcrExtraction.fromJson(Map<String, dynamic> json) =>
       StudioOcrExtraction(
         details: Details.fromJson(json["details"]),
-        firstName: json["firstName"],
-        documentNumber: json["documentNumber"],
+        firstName: json["firstName"] ?? '',
+        documentNumber: json["documentNumber"] ?? '',
         fullName: json["fullName"] ?? '',
       );
 
@@ -255,56 +255,25 @@ class StudioOcrExtraction {
 
 class Details {
   String docType;
-  List<BoundingRegion> boundingRegions;
-  List<Span> spans;
   Fields fields;
   double confidence;
 
   Details({
-    required this.docType,
-    required this.boundingRegions,
-    required this.spans,
+    this.docType = '',
     required this.fields,
     required this.confidence,
   });
 
   factory Details.fromJson(Map<String, dynamic> json) => Details(
-        docType: json["docType"],
-        boundingRegions: List<BoundingRegion>.from(
-            json["boundingRegions"].map((x) => BoundingRegion.fromJson(x))),
-        spans: List<Span>.from(json["spans"].map((x) => Span.fromJson(x))),
+        docType: json["docType"] ?? '',
         fields: Fields.fromJson(json["fields"]),
         confidence: json["confidence"]?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
         "docType": docType,
-        "boundingRegions":
-            List<dynamic>.from(boundingRegions.map((x) => x.toJson())),
-        "spans": List<dynamic>.from(spans.map((x) => x.toJson())),
         "fields": fields.toJson(),
         "confidence": confidence,
-      };
-}
-
-class BoundingRegion {
-  int pageNumber;
-  List<Polygon> polygon;
-
-  BoundingRegion({
-    required this.pageNumber,
-    required this.polygon,
-  });
-
-  factory BoundingRegion.fromJson(Map<String, dynamic> json) => BoundingRegion(
-        pageNumber: json["pageNumber"],
-        polygon:
-            List<Polygon>.from(json["polygon"].map((x) => Polygon.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "pageNumber": pageNumber,
-        "polygon": List<dynamic>.from(polygon.map((x) => x.toJson())),
       };
 }
 
@@ -355,37 +324,27 @@ class Fields {
 class DocumentNumber {
   String kind;
   String value;
-  List<BoundingRegion> boundingRegions;
   String content;
-  List<Span> spans;
   double confidence;
 
   DocumentNumber({
-    required this.kind,
-    required this.value,
-    required this.boundingRegions,
-    required this.content,
-    required this.spans,
+    this.kind = '',
+    this.value = '',
+    this.content = '',
     required this.confidence,
   });
 
   factory DocumentNumber.fromJson(Map<String, dynamic> json) => DocumentNumber(
-        kind: json["kind"],
-        value: json["value"],
-        boundingRegions: List<BoundingRegion>.from(
-            json["boundingRegions"].map((x) => BoundingRegion.fromJson(x))),
-        content: json["content"],
-        spans: List<Span>.from(json["spans"].map((x) => Span.fromJson(x))),
+        kind: json["kind"] ?? '',
+        value: json["value"] ?? '',
+         content: json["content"] ?? '',
         confidence: json["confidence"]?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
         "kind": kind,
         "value": value,
-        "boundingRegions":
-            List<dynamic>.from(boundingRegions.map((x) => x.toJson())),
         "content": content,
-        "spans": List<dynamic>.from(spans.map((x) => x.toJson())),
         "confidence": confidence,
       };
 }
@@ -415,12 +374,12 @@ class LastName {
   double confidence;
 
   LastName({
-    required this.kind,
-    required this.confidence,
+    this.kind = '',
+    this.confidence = 0.0,
   });
 
   factory LastName.fromJson(Map<String, dynamic> json) => LastName(
-        kind: json["kind"],
+        kind: json["kind"] ?? '',
         confidence: json["confidence"]?.toDouble(),
       );
 

@@ -109,13 +109,16 @@ Future<void> _listener(BuildContext context, DemoState state) async {
     );
   } else if (state is ErrorDetailState) {
     Navigator.pop(context);
-    showToast(
-      state.message,
-      backgroundColor: VerifikColors.rybBlue,
-      textStyle: const TextStyle(
-        color: Colors.white,
-      ),
-    );
+
+    if (state.message.isNotEmpty) {
+      showToast(
+        state.message,
+        backgroundColor: VerifikColors.rybBlue,
+        textStyle: const TextStyle(
+          color: Colors.white,
+        ),
+      );
+    }
   }
 }
 

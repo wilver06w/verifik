@@ -79,12 +79,18 @@ class ItemCard extends StatelessWidget {
                           pixels: VerifikSpacing.md),
                     )
                   : const SizedBox.shrink(),
-              VerifikText.body(
-                label: title,
-                fontWeight: FontWeight.w600,
-                color: VerifikColors.catalinaBlue.withOpacity(0.60),
-                textAlign: TextAlign.center,
-              ),
+              size.height > 650
+                  ? VerifikText.body(
+                      label: title,
+                      fontWeight: FontWeight.w600,
+                      color: VerifikColors.catalinaBlue.withOpacity(0.60),
+                      textAlign: TextAlign.center,
+                    )
+                  : VerifikText.small(
+                      label: title,
+                      color: VerifikColors.catalinaBlue.withOpacity(0.60),
+                      textAlign: TextAlign.center,
+                    )
             ],
           ),
         ),

@@ -10,7 +10,7 @@ class HeaderPassNumbers extends StatelessWidget {
     return Container(
       height: VerifikResponsive.heightSizeByContext(
         context,
-        pixels: 40,
+        pixels: 60,
       ),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -32,7 +32,10 @@ class HeaderPassNumbers extends StatelessWidget {
         },
         builder: (context, state) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: VerifikSpacing.md),
+            padding: const EdgeInsets.symmetric(
+              horizontal: VerifikSpacing.md,
+              vertical: VerifikSpacing.xs,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.max,

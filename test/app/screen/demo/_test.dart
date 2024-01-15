@@ -46,23 +46,17 @@ void main() {
         ocrExtraction: StudioOcrExtraction(
           details: Details(
             docType: '',
-            boundingRegions: [],
-            spans: [],
             fields: Fields(
               firstName: DocumentNumber(
                 kind: '',
                 value: '',
-                boundingRegions: [],
                 content: '',
-                spans: [],
                 confidence: 0.0,
               ),
               documentNumber: DocumentNumber(
                 kind: '',
                 value: '',
-                boundingRegions: [],
                 content: '',
-                spans: [],
                 confidence: 0.0,
               ),
               lastName: LastName(

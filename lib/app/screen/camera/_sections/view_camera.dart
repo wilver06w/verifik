@@ -9,6 +9,7 @@ class ViewCamera extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Stack(
       children: [
         ClipRRect(
@@ -20,7 +21,7 @@ class ViewCamera extends StatelessWidget {
             ),
             height: VerifikResponsive.heightSizeByContext(
               context,
-              pixels: 400,
+              pixels: size.width > 600 ? 350 : 250,
             ),
             child: CameraPreview(
               state.model.cameraController!,
@@ -34,7 +35,7 @@ class ViewCamera extends StatelessWidget {
           ),
           height: VerifikResponsive.heightSizeByContext(
             context,
-            pixels: 400,
+            pixels: size.width > 600 ? 350 : 250,
           ),
           decoration: BoxDecoration(
             color: Colors.white.withAlpha(95),

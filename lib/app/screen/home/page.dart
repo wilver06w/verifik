@@ -125,6 +125,12 @@ class BodyHome extends StatelessWidget {
                 ),
               ],
             ),
+            Gap(
+              VerifikResponsive.heightSizeByContext(
+                context,
+                pixels: VerifikSpacing.lg,
+              ),
+            ),
           ],
         ),
       ],
