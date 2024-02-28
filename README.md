@@ -1,6 +1,5 @@
 # verifik
 - v1.0.0
-- Este codigo esta compilado en esta url (https://wilver06w.github.io/)
 - Video probando su funcionalidad: (https://www.youtube.com/watch?v=VG3jZsG-oNU)
 
 
