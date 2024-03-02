@@ -1,5 +1,5 @@
 name: verifik
-description: "A new Flutter project."
+description: "Verifik Demo Project"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 #Si le cambias la version se ve reflejada en el footer de la web
 version: 1.0.0+1
@@ -28,7 +28,6 @@ dependencies:
   lottie: ^2.7.0
   url_launcher: ^6.2.2
 
-  platform_device_id: ^1.0.1
   gap: ^3.0.1
   octo_image: ^2.0.0
   camera: ^0.10.5+9
