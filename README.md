@@ -29,3 +29,5 @@ Adicionalmente, le dejo algunas funcionalidades usadas:
 - Modular.
 - Dio.
 - testUnit a Bloc, con escenarios OK y ERROR.
+
+![Captura de pantalla 2024-03-20 182941](https://github.com/wilver06w/verifik/assets/39421707/94999c38-657e-400f-91ce-f61fd17be135)
